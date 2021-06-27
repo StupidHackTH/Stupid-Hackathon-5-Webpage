@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header.js";
-import Registeration from "../components/Registeration.js";
+import Registeration from "../components/Registration.js";
 import WhatIs from "../components/WhatIs.js";
 import QA from "../components/QA.js";
 import Sponsor from "../components/Sponsor.js";
