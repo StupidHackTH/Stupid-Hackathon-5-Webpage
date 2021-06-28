@@ -3,7 +3,7 @@ import Astronaut from "../shared/Astronaut";
 
 export default (props) => (
   <>
-    <header className="container section h-screen max-w-5xl" id="header">
+    <header className="container section" id="header">
       <div id="heading-title">
         <h1>
           <p>The 5th</p>

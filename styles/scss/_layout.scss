@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 0 150px;
+    height: 100vh;
 
     & .nes-btn {
         margin: 10px 0;
@@ -11,10 +12,13 @@
     #heading-title {
         margin: 25px 0;
         line-height: 1;
-        font-size: 3.75rem;
         color: white;
-
+        
+        h1 {
+            font-size: 3.75rem;
+        }
         p {
+            font-size: inherit;
             margin-bottom: 5px;
         }
     }
@@ -35,25 +39,6 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-}
-
-.section {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-    max-width: 100vw !important;
-
-    &__inner {
-        padding: 75px 150px;
-    }
-
-    &.v-1 {
-        color: $stupid-black;
-        background-color: $stupid-yellow;
-    }
-    &.v-2 {
-        background-color: $stupid-blue;
-    }
 }
 
 #astro {
