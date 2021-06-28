@@ -3,7 +3,7 @@ import BlockLayout from "../shared/BlockLayout";
 export default (props) => (
   <>
     <BlockLayout header="Sponsor" variant="2" id="sponsor">
-      <div className="text-xl text-white border border-black bg-stupid-pink ml-2 mr-2 p-3 mb-5">
+      <div className="text-xl text-black border border-black bg-stupid-yellow ml-2 mr-2 p-3 mb-5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

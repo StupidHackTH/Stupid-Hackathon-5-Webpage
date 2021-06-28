@@ -138,17 +138,52 @@ body {
   padding: 5% 15%;
 }
 .section h1 {
-  font-size: 2rem;
+  font-size: 48px;
+}
+.section h2 {
+  font-size: 36px;
 }
 .section p {
-  font-size: 1rem;
+  font-size: 16px;
+}
+.section--title--header {
+  margin: 30px 0 50px 0;
 }
 .section__v-1 {
   color: #000;
   background-color: #EFE719;
 }
 .section__v-2 {
-  background-color: #1b00ff;
+  background-color: #ff41a6;
+}
+
+.status-block {
+  background-color: #000;
+  color: white;
+  margin-bottom: 32px;
+  padding: 1.5rem;
+}
+.status-block--title h1 {
+  font-size: 36px;
+  margin-top: 0.75rem;
+}
+.status-block--description p {
+  font-size: 16px;
+}
+.status-block--status {
+  font-size: 36px;
+  line-height: 2rem;
+  text-align: right;
+}
+.status-block--flag {
+  width: 1rem;
+  height: 1rem;
+}
+.status-block--flag__active {
+  background-color: #06FF00;
+}
+.status-block--flag__full {
+  background-color: #ff2600;
 }
 
 .nes-btn--green {
@@ -159,13 +194,13 @@ body {
   filter: brightness(90%);
 }
 
-.block-title {
-  margin-bottom: 25px;
-}
-
 @media screen and (min-width: 1300px) {
   #heading-title {
-    font-size: 4rem;
+    font-size: 64px;
+  }
+
+  .section__inner {
+    padding: 5% 25%;
   }
 }
 @media screen and (max-width: 890px) {

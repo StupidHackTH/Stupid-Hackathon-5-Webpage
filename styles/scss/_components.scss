@@ -9,11 +9,21 @@
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: $lg-size;
+    }
+
+    h2 {
+        font-size: $xm-size;
     }
 
     p {
-        font-size: 1rem;
+        font-size: $md-size;
+    }
+
+    &--title {
+        &--header {
+            margin: 30px 0 50px 0;
+        }
     }
 
     &__v-1 {
@@ -21,7 +31,42 @@
         background-color: $stupid-yellow;
     }
     &__v-2 {
-        background-color: $stupid-blue;
+        background-color: $stupid-pink;
+    }
+}
+
+.status-block {
+    background-color: $stupid-black;
+    color: white;
+    margin-bottom: 32px;
+    padding: 1.5rem;
+
+    &--title h1 {
+        font-size: $xm-size;
+        margin-top: 0.75rem;
+    }
+
+    &--description p {
+        font-size: $md-size;
+    }
+
+    &--status {
+        font-size: $xm-size;
+        line-height: 2rem;
+        text-align: right;
+    }
+
+    &--flag {
+        width: 1rem;
+        height: 1rem;
+
+        &__active {
+            background-color: $stupid-green;
+        }
+    
+        &__full {
+            background-color: $stupid-red;
+        }
     }
 }
 
@@ -34,13 +79,13 @@
     }
 }
 
-.block-title {
-    margin-bottom: 25px;
-}
-
 @media screen and (min-width: 1300px) {
     #heading-title {
-        font-size: 4rem;
+        font-size: $xl-size;
+    }
+
+    .section__inner {
+        padding: 5% 25%;
     }
 }
 

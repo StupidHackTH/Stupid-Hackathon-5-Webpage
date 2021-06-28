@@ -2,8 +2,17 @@
 $stupid-blue: #1b00ff;
 $stupid-green: #06FF00;
 $stupid-yellow: #EFE719;
-$stupid-pink: #EB1FFE;
+$stupid-pink: #ff41a6;
+$stupid-violet: #EB1FFE;
+$stupid-red: #ff2600;
 $stupid-black: #000;
+
+$md-size: 16px;
+
+$sm-size: 0.75 * $md-size;
+$xm-size: 2.25 * $md-size;
+$lg-size: 3 * $md-size;
+$xl-size: 4 * $md-size;
 
 html {
     height: 100%;
@@ -16,13 +25,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: white;
-    font-size: 16px;
+    font-size: $md-size;
     height: 100%;
 }
 
 ::selection {
     color: white;
-    background: #ff2600;
+    background: $stupid-red;
 }
 
 @font-face {
