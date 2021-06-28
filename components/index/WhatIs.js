@@ -1,7 +1,7 @@
-import BlockLayout from "./BlockLayout";
+import BlockLayout from "../BlockLayout";
 export default (props) => (
   <>
-    <BlockLayout header="What is a $tupid H@CkaTH0n">
+    <BlockLayout header="What is a $tupid H@CkaTH0n" variant="2" id="info">
       <div className="text-xl text-black border border-black bg-stupid-yellow ml-2 mr-2 p-3 mb-5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

@@ -1,8 +1,8 @@
-import BlockLayout from "./BlockLayout";
+import BlockLayout from "../BlockLayout";
 
 export default (props) => (
   <>
-    <BlockLayout header="Sponsor">
+    <BlockLayout header="Sponsor" variant="2" id="sponsor">
       <div className="text-xl text-white border border-black bg-stupid-pink ml-2 mr-2 p-3 mb-5">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim

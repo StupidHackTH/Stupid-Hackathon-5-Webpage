@@ -1,21 +1,23 @@
-import BlockLayout from "./BlockLayout";
+import BlockLayout from "../BlockLayout";
+import Astronaut from "../Astronaut";
 
 export default (props) => (
   <>
-    <div className="container mx-auto flex justify-between flex-col h-screen max-w-5xl">
-      <div className="text-6xl lg:text-7xl leading-none pt-12 pl-2">
-        <p>
-          The 5th <br /> StuPId H@CK <br />
-          THaIL@Nd
-        </p>
+    <header className="container section h-screen max-w-5xl" id="header">
+      <div id="heading-title">
+        <h1>
+          <p>The 5th</p>
+          <p>StuPId H@CK</p>
+          <p>THaIL@Nd</p>
+        </h1>
       </div>
-      <div className="text-5xl lg:text-6xl text-black leading-none pt-12 pl-2 pb-24">
-        <div className="bg-stupid-green mt-1 mb-1 w-min">R3gi$teR</div>
-        <div className="bg-stupid-green mt-1 mb-1 w-min whitespace-nowrap">
-          M0re 1nFo
-        </div>
-        <div className="bg-stupid-green mt-1 mb-1 w-min">F@cEB00K</div>
+      <div id="btn-links">
+        <a href="#register" className="nes-btn btn-green">R3gi$teR</a>
+        <a href="#info" className="nes-btn btn-green">M0re 1nFo</a>
+        <a href="#contact" className="nes-btn btn-green">C0Nt4cT</a>
       </div>
-    </div>
+
+      <Astronaut />
+    </header>
   </>
 );

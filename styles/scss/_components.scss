@@ -1,0 +1,12 @@
+.btn-green {
+    background-color: $stupid-green !important;
+    font-size: 2.25rem;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+}
+
+.block-title {
+    margin-bottom: 25px;
+}

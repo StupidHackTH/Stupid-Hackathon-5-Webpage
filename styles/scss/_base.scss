@@ -1,0 +1,32 @@
+
+$stupid-blue: #1b00ff;
+$stupid-green: #06FF00;
+$stupid-yellow: #EFE719;
+$stupid-pink: #EB1FFE;
+$stupid-black: #000;
+
+html {
+    height: 100%;
+    background-color: #1b00ff;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    height: 100%;
+}
+
+::selection {
+    color: white;
+    background: #ff2600;
+}
+
+@font-face {
+    font-family: "FA Sysfont C";
+    src: url("fa-sysfont-c.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}

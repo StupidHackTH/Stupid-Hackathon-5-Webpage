@@ -5,18 +5,15 @@ import WhatIs from "../components/index/WhatIs.js";
 import QA from "../components/index/QA.js";
 import Sponsor from "../components/index/Sponsor.js";
 import ContactUs from "../components/index/ContactUs.js";
-import Astronaut from "../components/Astronaut.js"
 
 export default function Home() {
   return (
     <>
-      <div
-        className="font-fasys w-screen h-screen text-white fixed overflow-scroll"
+      <main
+        className="font-fasys w-screen h-screen text-white overflow-scroll"
         id="wrapper"
       >
         <Header />
-
-        <Astronaut />
 
         <Registeration />
 
@@ -27,7 +24,7 @@ export default function Home() {
         <Sponsor />
 
         <ContactUs />
-      </div>
+      </main>
     </>
   );
 }

@@ -1,0 +1,108 @@
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 150px;
+
+    & .nes-btn {
+        margin: 10px 0;
+    }
+
+    #heading-title {
+        margin: 25px 0;
+        line-height: 1;
+        font-size: 3.75rem;
+        color: white;
+
+        p {
+            margin-bottom: 5px;
+        }
+    }
+
+    #btn-links {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin: 25px 0;
+    }
+}
+
+#wrapper {
+    position: fixed;
+    background-color: $stupid-blue;
+    background: url("/bg.png");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.section {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    max-width: 100vw !important;
+
+    & .inner {
+        padding: 75px 150px;
+    }
+
+    &.v-1 {
+        color: $stupid-black;
+        background-color: $stupid-yellow;
+    }
+    &.v-2 {
+        background-color: $stupid-blue;
+    }
+}
+
+#astro {
+    position: fixed;
+    right: 15%;
+    top: 15%;
+    max-width: 100%;
+    height: 50%;
+    z-index: -1;
+}
+
+@media screen and (min-width: 1300px) {
+    #astro {
+        top: 15%;
+        right: 25%;
+    }
+
+    #header {
+        padding: 0 20%;
+    }
+}
+
+@media screen and (max-width: 890px) {
+    #astro {
+        top: 35%;
+        right: 25px;
+    }
+
+    #header {
+        padding: 0 65px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    #astro {
+        top: 35%;
+        right: 0;
+    }
+
+    #header {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .section .inner {
+        padding: 10px 25px;
+    }
+
+    #header {
+        padding: 10px 25px;
+    }
+}
