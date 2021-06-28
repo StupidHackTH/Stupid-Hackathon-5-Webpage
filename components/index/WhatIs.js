@@ -1,4 +1,4 @@
-import BlockLayout from "../BlockLayout";
+import BlockLayout from "../shared/BlockLayout";
 export default (props) => (
   <>
     <BlockLayout header="What is a $tupid H@CkaTH0n" variant="2" id="info">

@@ -1,4 +1,4 @@
-import BlockLayout from "../BlockLayout";
+import BlockLayout from "../shared/BlockLayout";
 
 export default (props) => (
   <>

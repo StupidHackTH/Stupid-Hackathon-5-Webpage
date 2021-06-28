@@ -1,5 +1,5 @@
-import BlockLayout from "../BlockLayout";
-import Astronaut from "../Astronaut";
+import BlockLayout from "../shared/BlockLayout";
+import Astronaut from "../shared/Astronaut";
 
 export default (props) => (
   <>
@@ -11,10 +11,10 @@ export default (props) => (
           <p>THaIL@Nd</p>
         </h1>
       </div>
-      <div id="btn-links">
-        <a href="#register" className="nes-btn btn-green">R3gi$teR</a>
-        <a href="#info" className="nes-btn btn-green">M0re 1nFo</a>
-        <a href="#contact" className="nes-btn btn-green">C0Nt4cT</a>
+      <div className="btn-container">
+        <a href="#info" className="nes-btn nes-btn--green">M0re 1nFo</a>
+        <a href="#register" className="nes-btn nes-btn--green">Regi$teR</a>
+        <a href="#contact" className="nes-btn nes-btn--green">C0Nt4cT</a>
       </div>
 
       <Astronaut />

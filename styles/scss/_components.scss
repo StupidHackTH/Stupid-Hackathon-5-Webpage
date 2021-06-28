@@ -1,4 +1,4 @@
-.btn-green {
+.nes-btn--green {
     background-color: $stupid-green !important;
     font-size: 2.25rem;
 
@@ -11,14 +11,20 @@
     margin-bottom: 25px;
 }
 
+@media screen and (min-width: 1300px) {
+    #heading-title {
+        font-size: 4rem;
+    }
+}
+
 @media screen and (max-width: 890px) {
-    .btn-green {
+    .nes-btn--green {
         font-size: 1.75rem;
     }
 }
 
 @media screen and (max-width: 540px) {
-    .btn-green {
+    .nes-btn--green {
         font-size: 1rem;
     }
 }

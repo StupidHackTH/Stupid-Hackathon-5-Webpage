@@ -1,8 +1,5 @@
-import BlockLayout from "../BlockLayout";
+import BlockLayout from "../shared/BlockLayout";
 
-
-// TODO generate boxes using for loop
-// TODO put box into a separate component
 export default (props) => (
   <>
     <BlockLayout header="Registration" variant="1" id="register">
