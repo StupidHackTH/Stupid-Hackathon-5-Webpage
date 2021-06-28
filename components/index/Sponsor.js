@@ -37,7 +37,7 @@ export default (props) => (
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
         qui officia deserunt mollit anim id est laborum.
       </div>
-      <div className="text-5xl bg-black ml-2 mr-2 p-3 pb-10 mb-5">
+      <div className="text-5xl bg-black text-white ml-2 mr-2 p-3 pb-10 mb-5">
         <div className="w-4 h-4 bg-stupid-green"></div>
         <div className="mt-3">Notion / Links</div>
       </div>
