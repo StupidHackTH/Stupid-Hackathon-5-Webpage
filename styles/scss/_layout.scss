@@ -77,7 +77,7 @@
 
 @media screen and (max-width: 890px) {
     #astro {
-        top: 35%;
+        top: 32%;
         right: 25px;
     }
 
@@ -98,11 +98,24 @@
 }
 
 @media screen and (max-width: 540px) {
+    #astro {
+        top: 40%;
+        right: -5px;
+    }
+
     .section .inner {
         padding: 10px 25px;
     }
 
     #header {
+        justify-content: space-between;
         padding: 10px 25px;
+
+        #btn-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: start;
+        }
     }
 }

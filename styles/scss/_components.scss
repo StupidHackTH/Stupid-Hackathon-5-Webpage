@@ -10,3 +10,15 @@
 .block-title {
     margin-bottom: 25px;
 }
+
+@media screen and (max-width: 890px) {
+    .btn-green {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .btn-green {
+        font-size: 1rem;
+    }
+}
