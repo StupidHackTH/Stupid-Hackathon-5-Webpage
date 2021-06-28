@@ -35,11 +35,15 @@
     }
 }
 
-.status-block {
+@mixin card {
     background-color: $stupid-black;
     color: white;
     margin-bottom: 32px;
     padding: 1.5rem;
+}
+
+.status-block {
+    @include card;
 
     &--title h1 {
         font-size: $xm-size;
@@ -65,6 +69,37 @@
         }
     
         &__full {
+            background-color: $stupid-red;
+        }
+    }
+}
+
+.toggle-block {
+    @include card;
+
+    &--title h1 {
+        font-size: $xm-size;
+        margin-top: 0.75rem;
+    }
+
+    &--content p {
+        font-size: $md-size;
+    }
+
+    &--flag {
+        width: 1rem;
+        height: 1rem;
+
+        &__green {
+            background-color: $stupid-green;
+        }
+        &__yellow {
+            background-color: $stupid-yellow;
+        }
+        &__pink {
+            background-color: $stupid-pink;
+        }
+        &__red {
             background-color: $stupid-red;
         }
     }
