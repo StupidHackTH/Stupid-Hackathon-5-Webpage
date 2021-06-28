@@ -1,6 +1,6 @@
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect } from "react";
 
-export default () => {
+export default (props) => {
     useLayoutEffect(() => {
       const container = document.getElementById('wrapper');
   
