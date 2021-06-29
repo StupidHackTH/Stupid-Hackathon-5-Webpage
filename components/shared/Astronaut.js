@@ -3,7 +3,7 @@ import { useEffect } from "react";
 const Astronaut = (props) => {
   useEffect(() => {
     const container = window;
-    const initX = window.scrollX + astro.getBoundingClientRect().left;
+    // const initX = window.scrollX + astro.getBoundingClientRect().left;
     const initY = 30;
 
     const handleScroll = ({ target }) => {
@@ -13,17 +13,17 @@ const Astronaut = (props) => {
       
       var astro = document.getElementById("astro");
       
-      const x = window.scrollX + astro.getBoundingClientRect().left;
+      // const x = window.scrollX + astro.getBoundingClientRect().left;
       const y = window.scrollY + astro.getBoundingClientRect().top;
 
       // var y = (window.pageYOffset || target.scrollTop) - (doc.clientTop || 0);
 
       var aPosX, aScale, aRot;
-      const dX = x - initX;
+      // const dX = x - initX;
       const dY = y - initY;
       
-      const aSpeedX = 1020;
-      aPosX = Math.abs((vw/ 2) - (((aSpeedX / 1000) * (0.75 * dX)) % vw));
+      // const aSpeedX = 1020;
+      // aPosX = Math.abs((vw/ 2) - (((aSpeedX / 1000) * (0.75 * dX)) % vw));
 
       // scale
       aScale = (vh - (initY + ((0.15) * dY))) / (2 * vh) * 100;
@@ -38,7 +38,7 @@ const Astronaut = (props) => {
       astro.style.height = `${aScale}%`;
       // astro.style.transform = `rotate(${aRot}deg) translateX(${aShiftX}px)`;
       astro.style.transform = `rotate(${aRot}deg)`;
-      astro.style.left = `${vw-aPosX+25}px`;
+      // astro.style.left = `${vw-aPosX+25}px`;
     }
 
     container.addEventListener('scroll', handleScroll, false);
