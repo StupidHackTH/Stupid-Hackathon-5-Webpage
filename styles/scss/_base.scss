@@ -25,7 +25,7 @@ $breakpoints: (
 );
 
 html {
-    background-color: #1b00ff;
+    background-color: $stupid-blue;
     scroll-behavior: smooth;
     font-size: $md-size;
 }
@@ -40,7 +40,7 @@ body {
 }
 
 ::selection {
-    color: white;
+    color: $stupid-white;
     background: $stupid-red;
 }
 

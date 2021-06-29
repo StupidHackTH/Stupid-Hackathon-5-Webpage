@@ -120,7 +120,7 @@
     font-size: $xm-size;
     line-height: 2rem;
     color: $stupid-black;
-    border: 5px solid black;
+    border: 5px solid $stupid-black;
     margin: 25px 0;
 
     &--green {
@@ -185,7 +185,7 @@
     &__header {
         @include card;
         margin-bottom: 0;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $stupid-white;
         transition: background-color 0.1s ease-in;
 
         position: relative;
