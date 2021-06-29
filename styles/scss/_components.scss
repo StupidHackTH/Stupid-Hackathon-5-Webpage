@@ -95,6 +95,7 @@
         &--flag {
             width: 1rem;
             height: 1rem;
+            background-color: $stupid-yellow;
     
             &__green {
                 background-color: $stupid-green;
@@ -107,6 +108,9 @@
             }
             &__red {
                 background-color: $stupid-red;
+            }
+            &__orange {
+                background-color: $stupid-orange;
             }
         }
 

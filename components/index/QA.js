@@ -5,27 +5,27 @@ const THING = [
   {
     title: "Question",
     content: "Answer",
-    flag: "green"
+    flag: "orange"
   },
   {
     title: "Question",
     content: "Answer",
-    flag: "green"
+    flag: "orange"
   },
   {
     title: "Question",
     content: "Answer",
-    flag: "green"
+    flag: "orange"
   },
   {
     title: "Question",
     content: "Answer",
-    flag: "green"
+    flag: "orange"
   },
   {
     title: "Question",
     content: "Answer",
-    flag: "green"
+    flag: "orange"
   }
 ];
 

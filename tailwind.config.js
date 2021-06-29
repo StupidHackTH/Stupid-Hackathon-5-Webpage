@@ -14,7 +14,8 @@ module.exports = {
         "stupid-pink": "#ff41a6",
         "stupid-violet": "#EB1FFE",
         "stupid-red": "#ff2600",
-        "stupid-black": "#000"
+        "stupid-black": "#000",
+        "stupid-orange": "#ff9a00"
       },
     },
   },
