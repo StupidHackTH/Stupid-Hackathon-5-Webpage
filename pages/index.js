@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Header from "../components/index/Header.js";
-import Registeration from "../components/index/Registration.js";
+import Registration from "../components/index/Registration.js";
 import WhatIs from "../components/index/WhatIs.js";
 import QA from "../components/index/QA.js";
 import Sponsor from "../components/index/Sponsor.js";
@@ -16,9 +16,9 @@ export default function Home() {
       >
         <Header />
 
-        <Registeration />
-
         <WhatIs />
+
+        <Registration />
 
         <QA />
 

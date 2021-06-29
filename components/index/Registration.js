@@ -46,7 +46,7 @@ const Registration = (props) => {
 
   return (
     <>
-      <BlockLayout header="Registration" variant="1" id="register">
+      <BlockLayout header="Registration" variant="2" id="register">
         {Blocks}
       </BlockLayout>
     </>

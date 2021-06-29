@@ -3,7 +3,6 @@
 .wrapper {
     position: relative;
     z-index: 1;
-    overflow-y: scroll;
     height: 100%;
 
     &__space {
@@ -25,6 +24,12 @@
     }
 
     &__header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 150px;
+        height: 100vh;
+
         &__title {
             line-height: 1;
             color: white;
@@ -39,6 +44,40 @@
             @include respond-to(extralarge) {
                 font-size: $xxl-size;
             }
+        }
+
+        & .btn-container {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 25px 0;
+    
+            @include respond-to(small) {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-start;
+                margin: 0;
+            }
+        }
+
+        @include respond-to(extralarge) {
+            padding: 0 20%;
+        }
+        
+        @include respond-to(large) {
+            justify-content: space-around;
+            padding: 0 65px;
+        }
+    
+        @include respond-to(medium) {
+            padding: 0 50px;
+        }
+    
+        @include respond-to(small) {
+            justify-content: start;
+            padding: 10px 25px;
         }
     }
 
@@ -148,15 +187,13 @@
             margin-top: 0.75rem;
             
             &::before {
-                content: " ";
+                content: ">";
                 display: inline-block;
     
-                border-top: 5px solid transparent;
-                border-bottom: 5px solid transparent;
-                border-left: 5px solid currentColor;
+                font-size: $xl-size;
                 vertical-align: middle;
                 margin-right: 0.7rem;
-                transform: translateY(-5px);
+                transform: translateY(-15px);
     
                 transition: transform 0.2s ease-out;
             }

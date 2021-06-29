@@ -1,12 +1,6 @@
 @import '_mixin.scss';
 
 #header-index {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 0 150px;
-    height: 100vh;
-
     & .nes-btn {
         margin: 10px 0;
 
@@ -17,10 +11,6 @@
 
     & .section__header__title {
         margin: 25px 0;
-        
-        p {
-            margin-bottom: 5px;
-        }
 
         @include respond-to(extralarge) {
             padding-left: 5%;
@@ -30,40 +20,6 @@
         @include respond-to(small) {
             margin: 0;
         }
-    }
-
-    .btn-container {
-        margin-top: 25px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 25px 0;
-
-        @include respond-to(small) {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: flex-start;
-            margin: 0;
-        }
-    }
-
-    @include respond-to(extralarge) {
-        padding: 0 20%;
-    }
-    
-    @include respond-to(large) {
-        justify-content: space-around;
-        padding: 0 65px;
-    }
-
-    @include respond-to(medium) {
-        padding: 0 50px;
-    }
-
-    @include respond-to(small) {
-        justify-content: start;
-        padding: 10px 25px;
     }
 }
 

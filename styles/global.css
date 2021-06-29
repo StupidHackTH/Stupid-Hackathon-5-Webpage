@@ -137,7 +137,6 @@ body {
 .wrapper {
   position: relative;
   z-index: 1;
-  overflow-y: scroll;
   height: 100%;
 }
 .wrapper__space {
@@ -271,14 +270,12 @@ body {
   margin-top: 0.75rem;
 }
 .toggle__title h2::before {
-  content: " ";
+  content: ">";
   display: inline-block;
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 5px solid currentColor;
+  font-size: 48px;
   vertical-align: middle;
   margin-right: 0.7rem;
-  transform: translateY(-5px);
+  transform: translateY(-15px);
   transition: transform 0.2s ease-out;
 }
 .toggle__body {
