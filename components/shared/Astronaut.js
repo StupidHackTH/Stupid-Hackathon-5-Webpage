@@ -5,19 +5,18 @@ const Astronaut = (props) => {
     const container = window;
 
     const handleScroll = ({ target }) => {
-      console.log("Hi")
       const initY = 30;
       const doc = document.documentElement;
-      const vh = Math.max(doc.clientHeight || 0, window.innerHeight || 0)
+      const vh = Math.max(doc.clientHeight || 0, window.innerHeight || 0);
       var y = (window.pageYOffset || target.scrollTop) - (doc.clientTop || 0);
 
       var astro = document.getElementById("astro");
       var aPos, aScale, aRot;
 
-      var dY = y - initY
+      var dY = y - initY;
 
-      aPos = initY + (0.75 * dY)
-      aScale = (vh - (initY + ((0.3) * dY))) / 2 / vh * 100
+      aPos = initY + (0.75 * dY);
+      aScale = (vh - (initY + ((0.3) * dY))) / 2 / vh * 100;
       aRot = 90 - (vh - (initY + ((0.3) * dY))) / 2 / vh * 180;
 
       if (aScale < 25) {
@@ -26,12 +25,12 @@ const Astronaut = (props) => {
       }
 
       astro.style.top = `${aPos}px` * 0.75;
-      astro.style.height = `${aScale}%`
+      astro.style.height = `${aScale}%`;
       astro.style.transform = `rotate(${aRot}deg)`;
     }
 
-    container.addEventListener('scroll', handleScroll, false)
-    return () => container.removeEventListener('scroll', handleScroll)
+    container.addEventListener('scroll', handleScroll, false);
+    return () => container.removeEventListener('scroll', handleScroll);
   }, [])
 
   return (
