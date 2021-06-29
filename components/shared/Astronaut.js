@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const Astronaut = (props) => {
   useEffect(() => {
-    const container = document.getElementById('wrapper');
+    const container = document.querySelector('.wrapper');
 
     const handleScroll = ({ target }) => {
       const initY = 30;
