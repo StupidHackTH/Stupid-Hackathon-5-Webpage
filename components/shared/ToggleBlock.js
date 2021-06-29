@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// TODO collapisble isn't very compaitble
 const ToggleBlock = ({ title, content, flag }) => {
     const [toggled, setToggled] = useState(false);
 

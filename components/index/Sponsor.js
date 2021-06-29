@@ -1,13 +1,14 @@
 import BlockLayout from "../shared/BlockLayout";
 import ToggleBlock from "../shared/ToggleBlock";
+import TextBox from "../shared/TextBox";
 
 const Sponsor = (props) => {
   return (
     <>
       <BlockLayout header="Sponsor" variant="2" id="sponsor">
-        <div className="text-xl text-black border border-black bg-stupid-yellow ml-2 mr-2 p-3 mb-5">
+        <TextBox variant="yellow">
           Lorem ipsum dolor sit amet.
-        </div>
+        </TextBox>
 
         <ToggleBlock title="Notion / Links" content="Something about notion and links" flag="yellow"/>
       </BlockLayout>

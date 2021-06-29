@@ -115,6 +115,31 @@
     }
 }
 
+.text-box {
+    padding: 24px;
+    font-size: $xm-size;
+    line-height: 2rem;
+    color: $stupid-black;
+    border: 5px solid black;
+    margin: 25px 0;
+
+    &--green {
+        background-color: $stupid-green;
+    }
+    &--yellow {
+        background-color: $stupid-yellow;
+    }
+    &--pink {
+        background-color: $stupid-pink;
+    }
+    &--red {
+        background-color: $stupid-red;
+    }
+    &--orange {
+        background-color: $stupid-orange;
+    }
+}
+
 .status {
     @include card;
 
@@ -161,9 +186,17 @@
         @include card;
         margin-bottom: 0;
         border-bottom: 1px solid white;
+        transition: background-color 0.1s ease-in;
 
         position: relative;
         z-index: 1;
+
+        &:hover {
+            background-color: #3d3a3a;
+        }
+        &:active {
+            background-color: #292929;
+        }
     }
 
     &__flag {
