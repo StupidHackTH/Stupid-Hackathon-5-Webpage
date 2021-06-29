@@ -5,14 +5,15 @@ $stupid-yellow: #EFE719;
 $stupid-pink: #ff41a6;
 $stupid-violet: #EB1FFE;
 $stupid-red: #ff2600;
-$stupid-black: #000;
+$stupid-black: #2a2a2a;
 
 $md-size: 16px;
 
 $sm-size: 0.75 * $md-size;
-$xm-size: 2.25 * $md-size;
-$lg-size: 3 * $md-size;
-$xl-size: 4 * $md-size;
+$xm-size: 20px;
+$lg-size: 2.25 * $md-size;
+$xl-size: 3 * $md-size;
+$xxl-size: 4 * $md-size;
 
 html {
     height: 100%;

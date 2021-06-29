@@ -8,7 +8,7 @@ export default ({ title, current, max, desc }) => {
         <>
             <div className="status-block">
                 <div className={`status-block--flag ${flag}`}></div>
-                <div className="status-block--title"><h1>{title}</h1></div>
+                <div className="status-block--title"><h2>{title}</h2></div>
                 <div className="status-block--description"><p>{desc}</p></div>
                 <div className="status-block--status">{current}/{max}</div>
             </div>

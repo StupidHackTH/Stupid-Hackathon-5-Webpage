@@ -9,11 +9,11 @@
     }
 
     h1 {
-        font-size: $lg-size;
+        font-size: $xl-size;
     }
 
     h2 {
-        font-size: $xm-size;
+        font-size: $lg-size;
     }
 
     p {
@@ -45,8 +45,8 @@
 .status-block {
     @include card;
 
-    &--title h1 {
-        font-size: $xm-size;
+    &--title h2 {
+        font-size: $lg-size;
         margin-top: 0.75rem;
     }
 
@@ -55,7 +55,7 @@
     }
 
     &--status {
-        font-size: $xm-size;
+        font-size: $lg-size;
         line-height: 2rem;
         text-align: right;
     }
@@ -67,7 +67,7 @@
         &__active {
             background-color: $stupid-green;
         }
-    
+
         &__full {
             background-color: $stupid-red;
         }
@@ -75,37 +75,90 @@
 }
 
 .toggle-block {
-    @include card;
-
-    &--title h1 {
-        font-size: $xm-size;
-        margin-top: 0.75rem;
+    &[data-toggled="true"] &__body {
+        transform: translateY(0px);
+        max-height: 250px;
     }
 
-    &--content p {
-        font-size: $md-size;
+    &[data-toggled="true"] &__header--title h2::before {
+        transform: translateY(-8px) rotate(90deg);
     }
 
-    &--flag {
-        width: 1rem;
-        height: 1rem;
+    &__header {
+        @include card;
+        margin-bottom: 0;
+        border-bottom: 1px solid white;
 
-        &__green {
-            background-color: $stupid-green;
+        position: relative;
+        z-index: 1;
+
+        &--flag {
+            width: 1rem;
+            height: 1rem;
+    
+            &__green {
+                background-color: $stupid-green;
+            }
+            &__yellow {
+                background-color: $stupid-yellow;
+            }
+            &__pink {
+                background-color: $stupid-pink;
+            }
+            &__red {
+                background-color: $stupid-red;
+            }
         }
-        &__yellow {
-            background-color: $stupid-yellow;
-        }
-        &__pink {
-            background-color: $stupid-pink;
-        }
-        &__red {
-            background-color: $stupid-red;
+
+        &--title {
+            transition: all 0.25s ease-out;
+    
+            h2 {
+                font-size: $lg-size;
+                margin-top: 0.75rem;
+                
+                &::before {
+                    content: " ";
+                    display: inline-block;
+        
+                    border-top: 5px solid transparent;
+                    border-bottom: 5px solid transparent;
+                    border-left: 5px solid currentColor;
+                    vertical-align: middle;
+                    margin-right: 0.7rem;
+                    transform: translateY(-5px);
+        
+                    transition: transform 0.2s ease-out;
+                }
+            }
         }
     }
+
+    &__body {
+        @include card;
+
+        margin-bottom: 0;
+        max-height: 0px;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-100px);
+
+        position: relative;
+        z-index: 0;
+
+        &--content {
+            padding: 0.5rem 1rem;
+
+            p {
+                font-size: $xm-size;
+            }
+        }
+    }
+
+    margin-bottom: 32px;
 }
 
-.nes-btn--green {
+.nes-btn__green {
     background-color: $stupid-green !important;
     font-size: 2.25rem;
 
@@ -116,7 +169,7 @@
 
 @media screen and (min-width: 1300px) {
     #heading-title {
-        font-size: $xl-size;
+        font-size: $xxl-size;
     }
 
     .section__inner {
@@ -125,13 +178,13 @@
 }
 
 @media screen and (max-width: 890px) {
-    .nes-btn--green {
+    .nes-btn__green {
         font-size: 1.75rem;
     }
 }
 
 @media screen and (max-width: 540px) {
-    .nes-btn--green {
+    .nes-btn__green {
         font-size: 1rem;
     }
 }

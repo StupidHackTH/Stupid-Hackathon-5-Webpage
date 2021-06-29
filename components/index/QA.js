@@ -41,7 +41,7 @@ export default (props) => {
   
   return (
     <>
-      <BlockLayout header="Q/A" variant="1" id="questions">
+      <BlockLayout header="FAQ" variant="1" id="questions">
         {Blocks}
       </BlockLayout>
     </>
