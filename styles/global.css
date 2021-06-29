@@ -274,7 +274,8 @@ body {
   padding: 0.5rem 1rem;
 }
 .toggle__content p {
-  font-size: 21px;
+  font-size: 20px;
+  margin: 0;
 }
 
 .nes-btn__green {
