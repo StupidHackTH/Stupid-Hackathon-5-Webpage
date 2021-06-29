@@ -8,10 +8,10 @@ $stupid-orange: #ff9a00;
 $stupid-red: #ff2600;
 $stupid-black: #2a2a2a;
 
-$md-size: 16px;
+$md-size: 18px;
 
 $sm-size: 0.75 * $md-size;
-$xm-size: 20px;
+$xm-size: 24px;
 $lg-size: 2.25 * $md-size;
 $xl-size: 3 * $md-size;
 $xxl-size: 4 * $md-size;
@@ -20,15 +20,17 @@ html {
     height: 100%;
     background-color: #1b00ff;
     scroll-behavior: smooth;
+    font-size: $md-size;
 }
 
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: white;
     font-size: $md-size;
+    color: $stupid-black;
     height: 100%;
+    font-family: "FA Sysfont C", "iannnnnAMD", monospace !important;
 }
 
 ::selection {
@@ -39,6 +41,13 @@ body {
 @font-face {
     font-family: "FA Sysfont C";
     src: url("fa-sysfont-c.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "iannnnnAMD";
+    src: url("2005_iannnnnAMD.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }
