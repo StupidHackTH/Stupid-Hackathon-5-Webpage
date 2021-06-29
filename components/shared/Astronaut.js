@@ -2,9 +2,10 @@ import { useEffect } from "react";
 
 const Astronaut = (props) => {
   useEffect(() => {
-    const container = document.querySelector('.wrapper');
+    const container = window;
 
     const handleScroll = ({ target }) => {
+      console.log("Hi")
       const initY = 30;
       const doc = document.documentElement;
       const vh = Math.max(doc.clientHeight || 0, window.innerHeight || 0)
@@ -34,7 +35,9 @@ const Astronaut = (props) => {
   }, [])
 
   return (
-    <img src="/astronaut.png" id="astro" alt="astronaut" />
+    <>
+      <img src="/astronaut.png" id="astro" alt="astronaut" />
+    </>
   );
 }
 

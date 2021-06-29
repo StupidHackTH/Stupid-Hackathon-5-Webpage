@@ -13,14 +13,10 @@
 }
 
 .wrapper {
-    position: fixed;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-
-    width: 100vw;
-    height: 100vh;
-    overflow: scroll;
+    position: relative;
+    z-index: 1;
+    overflow-y: scroll;
+    height: 100%;
 
     &__space {
         background-color: $stupid-blue;

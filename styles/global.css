@@ -1,5 +1,4 @@
 html {
-  height: 100%;
   background-color: #1b00ff;
   scroll-behavior: smooth;
   font-size: 16px;
@@ -11,7 +10,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   color: #2a2a2a;
-  height: 100%;
   font-family: "FA Sysfont C", "iannnnnAMD", monospace !important;
 }
 
@@ -133,13 +131,10 @@ body {
 }
 
 .wrapper {
-  position: fixed;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  width: 100vw;
-  height: 100vh;
-  overflow: scroll;
+  position: relative;
+  z-index: 1;
+  overflow-y: scroll;
+  height: 100%;
 }
 .wrapper__space {
   background-color: #1b00ff;

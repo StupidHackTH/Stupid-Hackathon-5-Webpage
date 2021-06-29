@@ -17,7 +17,6 @@ $xl-size: 3 * $md-size;
 $xxl-size: 4 * $md-size;
 
 html {
-    height: 100%;
     background-color: #1b00ff;
     scroll-behavior: smooth;
     font-size: $md-size;
@@ -29,7 +28,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: $md-size;
     color: $stupid-black;
-    height: 100%;
     font-family: "FA Sysfont C", "iannnnnAMD", monospace !important;
 }
 
