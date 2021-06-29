@@ -1,7 +1,7 @@
 import BlockLayout from "../shared/BlockLayout";
 import Astronaut from "../shared/Astronaut";
 
-export default (props) => (
+const Header = (props) => (
   <>
     <header className="container section" id="header">
       <div id="heading-title">
@@ -21,3 +21,5 @@ export default (props) => (
     </header>
   </>
 );
+
+export default Header;

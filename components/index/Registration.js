@@ -34,7 +34,7 @@ const THING = [
   },
 ]
 
-export default (props) => {
+const Registration = (props) => {
   const Blocks = THING.map((e, i) => {
     return <StatusBlock
         title={e.title} 
@@ -52,3 +52,5 @@ export default (props) => {
     </>
   );
 }
+
+export default Registration;

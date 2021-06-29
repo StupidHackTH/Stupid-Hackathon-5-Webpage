@@ -29,7 +29,7 @@ const THING = [
   }
 ];
 
-export default (props) => {
+const QA = (props) => {
   const Blocks = THING.map((e, i) => {
     return <ToggleBlock
         title={e.title} 
@@ -47,3 +47,5 @@ export default (props) => {
     </>
   );
 }
+
+export default QA;

@@ -1,6 +1,6 @@
 import BlockLayout from "../shared/BlockLayout";
 
-export default (props) => (
+const ContactUs = (props) => (
   <>
     <BlockLayout header="Contact Us" variant="1" id="contact">
       <section className="icon-list">
@@ -31,3 +31,5 @@ export default (props) => (
     </BlockLayout>
   </>
 );
+
+export default ContactUs;

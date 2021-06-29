@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // TODO collapisble isn't very compaitble
-export default ({ title, content, flag }) => {
+const ToggleBlock = ({ title, content, flag }) => {
     const [toggled, setToggled] = useState(false);
 
     const handleClick = (e) => setToggled(!toggled);
@@ -22,3 +22,5 @@ export default ({ title, content, flag }) => {
         </>
     );
 };
+
+export default ToggleBlock;

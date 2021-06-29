@@ -1,4 +1,4 @@
-export default ({ title, current, max, desc }) => {
+const StatusBlock = ({ title, current, max, desc }) => {
     let flag = "status-block--flag__active";
     if (current >= max) {
         flag = "status-block--flag__full";
@@ -15,3 +15,5 @@ export default ({ title, current, max, desc }) => {
         </>
     );
 }
+
+export default StatusBlock;

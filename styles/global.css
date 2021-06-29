@@ -125,7 +125,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: start;
+    align-items: flex-start;
   }
 }
 .section {

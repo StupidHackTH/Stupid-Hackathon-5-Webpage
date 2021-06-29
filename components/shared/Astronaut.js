@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default (props) => {
+const Astronaut = (props) => {
   useEffect(() => {
     const container = document.getElementById('wrapper');
 
@@ -37,3 +37,5 @@ export default (props) => {
     <img src="/astronaut.png" id="astro" alt="astronaut" />
   );
 }
+
+export default Astronaut;
