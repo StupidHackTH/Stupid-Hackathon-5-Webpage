@@ -16,7 +16,7 @@ const Astronaut = (props) => {
       var dY = y - initY;
 
       aPos = initY + (0.75 * dY);
-      aScale = (vh - (initY + ((0.3) * dY))) / 2 / vh * 100;
+      aScale = (vh - (initY + ((0.15) * dY))) / 2 / vh * 100;
       aRot = 90 - (vh - (initY + ((0.3) * dY))) / 2 / vh * 180;
 
       if (aScale < 25) {

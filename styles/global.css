@@ -139,6 +139,8 @@ body {
 .wrapper__space {
   background-color: #1b00ff;
   background: url("/bg.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .section {
@@ -161,13 +163,6 @@ body {
 }
 .section__body {
   font-size: 16px;
-}
-.section--v-1 {
-  color: #2a2a2a;
-  background-color: #EFE719;
-}
-.section--v-2 {
-  background-color: #ff41a6;
 }
 
 .status {

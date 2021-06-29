@@ -21,6 +21,8 @@
     &__space {
         background-color: $stupid-blue;
         background: url("/bg.png");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 }
 
@@ -48,14 +50,6 @@
 
     &__body {
         font-size: $md-size;
-    }
-
-    &--v-1 {
-        color: $stupid-black;
-        background-color: $stupid-yellow;
-    }
-    &--v-2 {
-        background-color: $stupid-pink;
     }
 }
 
