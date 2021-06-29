@@ -23,6 +23,37 @@
         font-size: $lg-size;
     }
 
+    &__title-container {
+        margin: 30px 0 80px 0;
+    }
+
+    &__title {
+        font-size: $xl-size;
+
+        span {
+            background-color: $stupid-black;
+            color: $stupid-white;
+            padding: 16px;
+        }
+    }
+
+    &__container {
+        padding: 5% 10%;
+        border-top: 5px solid $stupid-black;
+
+        @include respond-to(extralarge) {
+            padding: 5% 20%;
+        }
+
+        @include respond-to(small) {
+            padding: 10px 25px;
+        }
+    }
+
+    &__body {
+        font-size: $md-size;
+    }
+
     &__header {
         display: flex;
         flex-direction: column;
@@ -75,35 +106,12 @@
         }
     }
 
-    &__title-container {
-        h1 {
-            font-size: $xl-size;
-            margin: 25px 0 50px 0;
-        }
+    &--v-1 {
+        background-color: rgba(255, 221, 29, 0.816);
     }
 
-    &__container {
-        padding: 2% 10%;
-
-        @include respond-to(extralarge) {
-            padding: 5% 20%;
-        }
-
-        @include respond-to(small) {
-            padding: 10px 25px;
-        }
-    }
-
-    &__header {
-        margin: 30px 0 50px 0;
-    }
-
-    &__title {
-        font-size: $xl-size;
-    }
-
-    &__body {
-        font-size: $md-size;
+    &--v-2 {
+        background-color: rgba(228, 44, 188, 0.816);
     }
 }
 

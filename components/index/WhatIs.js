@@ -3,7 +3,7 @@ import BlockLayout from "../shared/BlockLayout";
 const Whatis = (props) => {
   return (
     <>
-      <BlockLayout header="What is a Stupid Hackathon?" variant="1" id="info">
+      <BlockLayout header="What is Stupid Hackathon?" variant="1" id="info">
         <div className="text-xl text-black border border-black bg-stupid-yellow ml-2 mr-2 p-3 mb-5">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
