@@ -16,6 +16,13 @@ $lg-size: 2.25 * $md-size;
 $xl-size: 3 * $md-size;
 $xxl-size: 4 * $md-size;
 
+$breakpoints: (
+    small: 540px,
+    medium: 710px,
+    large: 890px,
+    extralarge: 1300px
+);
+
 html {
     background-color: #1b00ff;
     scroll-behavior: smooth;

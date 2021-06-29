@@ -1,0 +1,27 @@
+@mixin card {
+    background-color: $stupid-black;
+    color: white;
+    margin-bottom: 32px;
+    padding: 1.5rem;
+}
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $value: map-get($breakpoints, $breakpoint);
+
+        @if $breakpoint == extralarge {
+            @media screen and (min-width: $value) {
+                @content;
+            }
+        }
+        @else {
+            @media screen and (max-width: $value) {
+                @content;
+            }
+        } 
+    }
+
+    @else {
+        @warn "Unknown `#{$breakpoint}` in $breakpoints";
+    }
+}

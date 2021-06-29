@@ -1,20 +1,16 @@
 html {
   background-color: #1b00ff;
   scroll-behavior: smooth;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 24px;
-  color: #000;
+  font-size: 16px;
+  color: #2a2a2a;
   font-family: "FA Sysfont C", "iannnnnAMD", monospace !important;
-}
-
-p {
-  font-size: 24px;
 }
 
 ::selection {
@@ -34,23 +30,75 @@ p {
   font-weight: normal;
   font-style: normal;
 }
-#header {
+#header-index {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0 5%;
+  padding: 0 150px;
   height: 100vh;
 }
-#header .nes-btn {
+#header-index .nes-btn {
   margin: 10px 0;
 }
-
-#header .btn-container {
+@media screen and (max-width: 540px) {
+  #header-index .nes-btn {
+    font-size: 20px;
+  }
+}
+#header-index .section__header__title {
+  margin: 25px 0;
+}
+#header-index .section__header__title p {
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 1300px) {
+  #header-index .section__header__title {
+    padding-left: 5%;
+    padding-top: 5%;
+  }
+}
+@media screen and (max-width: 540px) {
+  #header-index .section__header__title {
+    margin: 0;
+  }
+}
+#header-index .btn-container {
   margin-top: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 25px 0;
+}
+@media screen and (max-width: 540px) {
+  #header-index .btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1300px) {
+  #header-index {
+    padding: 0 20%;
+  }
+}
+@media screen and (max-width: 890px) {
+  #header-index {
+    justify-content: space-around;
+    padding: 0 65px;
+  }
+}
+@media screen and (max-width: 710px) {
+  #header-index {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 540px) {
+  #header-index {
+    justify-content: start;
+    padding: 10px 25px;
+  }
 }
 
 #astro {
@@ -61,19 +109,10 @@ p {
   height: 50%;
   z-index: -1;
 }
-
 @media screen and (min-width: 1300px) {
   #astro {
     top: 15%;
     right: 25%;
-  }
-
-  #header {
-    /* padding: 0 20%; */
-  }
-  #header #heading-title {
-    /* padding-left: 5%; */
-    padding-top: 5%;
   }
 }
 @media screen and (max-width: 890px) {
@@ -81,53 +120,18 @@ p {
     top: 15%;
     right: 25px;
   }
-
-  #header {
-    justify-content: space-around;
-    /* padding: 0 65px; */
-  }
 }
 @media screen and (max-width: 710px) {
   #astro {
     top: 35%;
     right: 0;
   }
-
-  #header {
-    /* padding: 0 50px; */
-  }
 }
 @media screen and (max-width: 540px) {
   #astro {
-    top: 40%;
-    right: -5px;
+    top: 56%;
+    right: -15px;
   }
-
-  .section .section__container {
-    padding: 10px 25px;
-  }
-
-  #header {
-    justify-content: space-between;
-    /* padding: 10px 25px; */
-  }
-  #header .btn-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-}
-
-#header #heading-title {
-  line-height: 1;
-  color: white;
-  margin: 25px 0;
-}
-
-#header #heading-title p {
-  font-size: 3.75rem;
-  margin-bottom: 5px;
 }
 
 .wrapper {
@@ -149,38 +153,60 @@ p {
   padding: 0;
   max-width: 100vw !important;
 }
-
 .section h2 {
   font-size: 36px;
 }
+.section__header__title {
+  line-height: 1;
+  color: white;
+}
+.section__header__title h1 {
+  font-size: 3.75rem;
+}
+.section__header__title p {
+  font-size: inherit;
+}
+@media screen and (min-width: 1300px) {
+  .section__header__title {
+    font-size: 64px;
+  }
+}
 .section__container {
-  padding: 2vh 5%;
+  padding: 5% 15%;
+}
+@media screen and (min-width: 1300px) {
+  .section__container {
+    padding: 5% 25%;
+  }
+}
+@media screen and (max-width: 540px) {
+  .section__container {
+    padding: 10px 25px;
+  }
 }
 .section__header {
   margin: 30px 0 50px 0;
 }
 .section__title {
-  color: #fff;
-  font-size: 60px;
-  padding: 0;
+  font-size: 48px;
+}
+.section__body {
+  font-size: 16px;
 }
 
 .status {
-  background-color: #000;
+  background-color: #2a2a2a;
   color: white;
   margin-bottom: 32px;
   padding: 1.5rem;
 }
-
-.status:hover {
-  background-color: #1a1a1a;
-}
-
 .status__title h2 {
   font-size: 36px;
   margin-top: 0.75rem;
 }
-
+.status__description p {
+  font-size: 16px;
+}
 .status__count {
   font-size: 36px;
   line-height: 2rem;
@@ -208,7 +234,7 @@ p {
   transform: translateY(-8px) rotate(90deg);
 }
 .toggle__header {
-  background-color: #000;
+  background-color: #2a2a2a;
   color: white;
   margin-bottom: 32px;
   padding: 1.5rem;
@@ -256,8 +282,11 @@ p {
   transition: transform 0.2s ease-out;
 }
 .toggle__body {
-  background-color: #1a1a1a;
+  background-color: #2a2a2a;
   color: white;
+  margin-bottom: 32px;
+  padding: 1.5rem;
+  margin-bottom: 0;
   max-height: 0px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
@@ -267,9 +296,9 @@ p {
 }
 .toggle__content {
   padding: 0.5rem 1rem;
-  margin: 32px;
 }
 .toggle__content p {
+  font-size: 20px;
   margin: 0;
 }
 
@@ -280,29 +309,14 @@ p {
 .nes-btn__green:hover {
   filter: brightness(90%);
 }
-
-@media screen and (min-width: 1300px) {
-  .section__inner {
-    padding: 5% 25%;
-  }
-}
-@media screen and (max-width: 890px) {
-  #header #heading-title p {
-    font-size: 2.75rem;
-  }
-  .nes-btn__green {
-    font-size: 1.75rem;
-  }
-  .status {
-    padding: 20px;
-  }
-  p {
-    font-size: 16px
-  }
-}
 @media screen and (max-width: 540px) {
   .nes-btn__green {
     font-size: 1rem;
+  }
+}
+@media screen and (max-width: 710px) {
+  .nes-btn__green {
+    font-size: 1.75rem;
   }
 }
 

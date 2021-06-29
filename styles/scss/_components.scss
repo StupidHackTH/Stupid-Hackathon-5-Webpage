@@ -1,16 +1,4 @@
-#header {
-    #heading-title {
-        line-height: 1;
-        color: white;
-        
-        h1 {
-            font-size: 3.75rem;
-        }
-        p {
-            font-size: inherit;
-        }
-    }
-}
+@import '_mixin.scss';
 
 .wrapper {
     position: relative;
@@ -36,8 +24,34 @@
         font-size: $lg-size;
     }
 
+    &__header {
+        &__title {
+            line-height: 1;
+            color: white;
+            
+            h1 {
+                font-size: 3.75rem;
+            }
+            p {
+                font-size: inherit;
+            }
+    
+            @include respond-to(extralarge) {
+                font-size: $xxl-size;
+            }
+        }
+    }
+
     &__container {
         padding: 5% 15%;
+
+        @include respond-to(extralarge) {
+            padding: 5% 25%;
+        }
+
+        @include respond-to(small) {
+            padding: 10px 25px;
+        }
     }
 
     &__header {
@@ -51,13 +65,6 @@
     &__body {
         font-size: $md-size;
     }
-}
-
-@mixin card {
-    background-color: $stupid-black;
-    color: white;
-    margin-bottom: 32px;
-    padding: 1.5rem;
 }
 
 .status {
@@ -188,26 +195,12 @@
     &:hover {
         filter: brightness(90%);
     }
-}
 
-@media screen and (min-width: 1300px) {
-    #heading-title {
-        font-size: $xxl-size;
-    }
-
-    .section__inner {
-        padding: 5% 25%;
-    }
-}
-
-@media screen and (max-width: 890px) {
-    .nes-btn__green {
-        font-size: 1.75rem;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .nes-btn__green {
+    @include respond-to(small) {
         font-size: 1rem;
+    }
+
+    @include respond-to(medium) {
+        font-size: 1.75rem;
     }
 }
