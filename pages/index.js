@@ -11,6 +11,9 @@ import ContactUs from "../components/index/ContactUs.js";
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Stupid Hackathon 5</title>
+      </Head>
       <main
         className="wrapper wrapper__space"
       >
