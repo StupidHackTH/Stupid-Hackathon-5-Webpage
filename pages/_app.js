@@ -1,5 +1,5 @@
 import "tailwindcss/tailwind.css";
-import "../styles/global.css";
+import "../styles/main.scss";
 import "nes.css/css/nes.min.css";
 
 function MyApp({ Component, pageProps }) {

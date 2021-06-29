@@ -30,22 +30,16 @@
         padding: 0 150px;
         height: 100vh;
 
-        &__title {
+        & .section__title {
             line-height: 1;
+            font-size: 3.75rem;
             color: white;
-            
-            h1 {
-                font-size: 3.75rem;
-            }
-            p {
-                font-size: inherit;
-            }
-    
+
             @include respond-to(extralarge) {
                 font-size: $xxl-size;
             }
         }
-
+        
         & .btn-container {
             margin-top: 25px;
             display: flex;
@@ -81,11 +75,18 @@
         }
     }
 
+    &__title-container {
+        h1 {
+            font-size: $xl-size;
+            margin: 25px 0 50px 0;
+        }
+    }
+
     &__container {
-        padding: 5% 15%;
+        padding: 2% 10%;
 
         @include respond-to(extralarge) {
-            padding: 5% 25%;
+            padding: 5% 20%;
         }
 
         @include respond-to(small) {
