@@ -10,9 +10,6 @@ class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
-                    <meta charset="utf-8" />
-                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <meta name="next-head-count" content="2" />
                     <title>Stupid Hackathon 5</title>
                 </Head>
                 <body>
