@@ -14,8 +14,7 @@ export default function Home() {
   return (
     <>
       <main
-        className="font-fasys w-screen h-screen overflow-scroll"
-        id="wrapper"
+        className="wrapper wrapper__space  font-fasys"
       >
         <Header />
 

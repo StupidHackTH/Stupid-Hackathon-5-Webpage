@@ -11,14 +11,8 @@
 
     #heading-title {
         margin: 25px 0;
-        line-height: 1;
-        color: white;
         
-        h1 {
-            font-size: 3.75rem;
-        }
         p {
-            font-size: inherit;
             margin-bottom: 5px;
         }
     }
@@ -30,15 +24,6 @@
         justify-content: space-between;
         margin: 25px 0;
     }
-}
-
-#wrapper {
-    position: fixed;
-    background-color: $stupid-blue;
-    background: url("/bg.png");
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 #astro {
@@ -95,7 +80,7 @@
         right: -5px;
     }
 
-    .section .section__inner {
+    .section .section__container {
         padding: 10px 25px;
     }
 

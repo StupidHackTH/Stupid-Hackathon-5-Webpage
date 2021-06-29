@@ -1,16 +1,16 @@
 const StatusBlock = ({ title, current, max, desc }) => {
-    let flag = "status-block--flag__active";
+    let flag = "status__flag--active";
     if (current >= max) {
-        flag = "status-block--flag__full";
+        flag = "status__flag--full";
     }
 
     return (
         <>
-            <div className="status-block">
-                <div className={`status-block--flag ${flag}`}></div>
-                <div className="status-block--title"><h2>{title}</h2></div>
-                <div className="status-block--description"><p>{desc}</p></div>
-                <div className="status-block--status">{current}/{max}</div>
+            <div className="status">
+                <div className={`status__flag ${flag}`}></div>
+                <div className="status__title"><h2>{title}</h2></div>
+                <div className="status__description"><p>{desc}</p></div>
+                <div className="status__count">{current}/{max}</div>
             </div>
         </>
     );

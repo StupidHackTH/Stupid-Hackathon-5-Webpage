@@ -8,13 +8,13 @@ const ToggleBlock = ({ title, content, flag }) => {
 
     return (
         <>
-            <div className="toggle-block" data-toggled={toggled}>
-                <div className="toggle-block__header  nes-pointer" onClick={handleClick} tabIndex="0">
-                    <div className={`toggle-block__header--flag toggle-block__header--flag__${flag || "yellow"}`}></div>
-                    <div className="toggle-block__header--title"><h2>{title}</h2></div>
+            <div className="toggle" data-toggled={toggled}>
+                <div className="toggle__header  nes-pointer" onClick={handleClick} tabIndex="0">
+                    <div className={`toggle__flag toggle__flag--${flag || "yellow"}`}></div>
+                    <div className="toggle__title"><h2>{title}</h2></div>
                 </div>
-                <div className="toggle-block__body">
-                    <div className="toggle-block__body--content">
+                <div className="toggle__body">
+                    <div className="toggle__content">
                         <p>{content}</p>
                     </div>
                 </div>

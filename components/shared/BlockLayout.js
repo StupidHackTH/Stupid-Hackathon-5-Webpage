@@ -1,12 +1,14 @@
 const BlockLayout = ({ header, children, variant, id }) => {
   return (
     <>
-      <section className={`container section section__v-${variant || 0}`} id={id}>
-        <div className="section__inner">
-          <div className="section--title">
-            <h1 className="section--title--header">{header}</h1>
+      <section className={`section section--v-${variant || 0}  container`} id={id}>
+        <div className="section__container">
+          <div className="section__header">
+            <h1 className="section__title">{header}</h1>
           </div>
-          {children}
+          <div className="section__body">
+            {children}
+          </div>
         </div>
       </section>
     </>
