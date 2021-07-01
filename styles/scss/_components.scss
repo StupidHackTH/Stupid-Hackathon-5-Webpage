@@ -176,6 +176,8 @@
     &[data-toggled="true"] &__body {
         transform: translateY(0px);
         max-height: 250px;
+        height: auto;
+        padding: 25px;
     }
 
     &[data-toggled="true"] &__title h2::before {
@@ -184,6 +186,7 @@
 
     &__header {
         @include card;
+        padding-bottom: 48px;
         margin-bottom: 0;
         border-bottom: 1px solid $stupid-white;
         transition: background-color 0.1s ease-in;
@@ -192,10 +195,10 @@
         z-index: 1;
 
         &:hover {
-            background-color: #3d3a3a;
+            background-color: #1b1b1b;
         }
         &:active {
-            background-color: #292929;
+            background-color: #171717;
         }
     }
 
@@ -246,9 +249,11 @@
         @include card;
 
         margin-bottom: 0;
-        max-height: 0px;
+        max-height: 0;
+        height: 0;
+        padding: 0;
         overflow: hidden;
-        transition: all 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
         transform: translateY(-100px);
 
         position: relative;
@@ -264,7 +269,7 @@
         }
     }
 
-    margin-bottom: 32px;
+    margin-bottom: 1.5rem;
 }
 
 .nes-btn__green {

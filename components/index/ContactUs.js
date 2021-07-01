@@ -1,33 +1,14 @@
 import BlockLayout from "../shared/BlockLayout";
+import TextBox from "../shared/TextBox";
 
 const ContactUs = (props) => (
   <>
     <BlockLayout header="Contact Us" variant="1" id="contact">
-      <section className="icon-list">
-        <i className="nes-icon twitter is-large"></i>
-
-        <i className="nes-icon facebook is-large"></i>
-
-        <i className="nes-icon instagram is-large"></i>
-
-        <i className="nes-icon github is-large"></i>
-
-        <i className="nes-icon google is-large"></i>
-
-        <i className="nes-icon gmail is-large"></i>
-
-        <i className="nes-icon medium is-large"></i>
-
-        <i className="nes-icon linkedin is-large"></i>
-
-        <i className="nes-icon twitch is-large"></i>
-
-        <i className="nes-icon youtube is-large"></i>
-
-        <i className="nes-icon reddit is-large"></i>
-
-        <i className="nes-icon whatsapp is-large"></i>
-      </section>
+      <TextBox variant="yellow">
+        <div className="contact-link">
+          <a href="https://www.facebook.com/StupidHackTH/" className="contact-link__text" target="_blank">Our Facebook Page</a>
+        </div>
+      </TextBox>
     </BlockLayout>
   </>
 );

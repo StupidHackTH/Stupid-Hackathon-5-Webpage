@@ -1,5 +1,24 @@
 @import '_mixin.scss';
 
+#contact {
+    @include respond-to(small) {
+        .section__title-container {
+            margin-bottom: 36px;
+        }
+    }
+
+    .contact-link {
+        width: 100%;
+        word-wrap: break-word;
+    
+        &__text {
+            font-size: $xm-size;
+            color: $stupid-red;
+            text-decoration: underline;
+        }
+    }
+}
+
 #header-index {
     & .nes-btn {
         margin: 10px 0;

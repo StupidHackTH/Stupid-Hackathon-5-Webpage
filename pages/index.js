@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Stupid Hackathon 5</title>
+        <title>The 5th Stupid Hackathon Thailand</title>
       </Head>
       <main
         className="wrapper wrapper__space"

@@ -5,12 +5,10 @@ import TextBox from "../shared/TextBox";
 const Sponsor = (props) => {
   return (
     <>
-      <BlockLayout header="Sponsor" variant="2" id="sponsor">
+      <BlockLayout header="Send us money" variant="2" id="sponsor">
         <TextBox variant="yellow">
-          Lorem ipsum dolor sit amet.
+          scb 193-381913-181
         </TextBox>
-
-        <ToggleBlock title="Notion / Links" content="Something about notion and links" flag="yellow"/>
       </BlockLayout>
     </>
   );
