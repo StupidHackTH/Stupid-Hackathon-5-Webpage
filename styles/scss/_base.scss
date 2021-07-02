@@ -36,7 +36,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     font-size: $md-size;
     color: $stupid-black;
-    font-family: "FA Sysfont C", "iannnnnAMD", monospace !important;
+    font-family: "FA Sysfont C", monospace !important;
 }
 
 ::selection {
@@ -47,13 +47,6 @@ body {
 @font-face {
     font-family: "FA Sysfont C";
     src: url("../fa-sysfont-c.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "iannnnnAMD";
-    src: url("../2005_iannnnnAMD.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
 }

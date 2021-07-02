@@ -7,7 +7,7 @@
 
     &__space {
         background-color: $stupid-blue;
-        background: url("/bg.png");
+        background: url("/bg.webp");
         background-attachment: fixed;
         background-repeat: no-repeat;
     }
@@ -173,14 +173,14 @@
 }
 
 .toggle {
-    &[data-toggled="true"] &__body {
+    &--toggled &__body {
         transform: translateY(0px);
         max-height: 250px;
         height: auto;
         padding: 25px;
     }
 
-    &[data-toggled="true"] &__title h2::before {
+    &--toggled &__title h2::before {
         transform: translateY(-8px) rotate(90deg);
     }
 
@@ -253,7 +253,7 @@
         height: 0;
         padding: 0;
         overflow: hidden;
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out, height .2s ease-out, padding .2s ease-out;
         transform: translateY(-100px);
 
         position: relative;
@@ -286,5 +286,27 @@
 
     @include respond-to(medium) {
         font-size: 1.75rem;
+    }
+}
+
+.btn {
+    font-size: $lg-size;
+    background-color: $stupid-green;
+    padding: 10px 12px;
+    box-shadow: 4px 0 0 #000,
+                0 4px 0 #000,
+                -4px 0 0 #000,
+                0 -4px 0 #000,
+                inset -4px -4px 0 #177013;
+
+    &:hover,
+    &:focus {
+        box-shadow: 4px 0 0 #000,
+                    0 4px 0 #000,
+                    -4px 0 0 #000,
+                    0 -4px 0 #000,
+                    inset -6px -6px 0 #177013;
+        background-color: $stupid-green;
+        filter: brightness(.9);
     }
 }

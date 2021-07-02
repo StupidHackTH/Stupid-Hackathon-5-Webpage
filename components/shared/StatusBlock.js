@@ -1,5 +1,6 @@
 const StatusBlock = ({ title, current, max, desc }) => {
   let flag = "status__flag--active";
+
   if (current >= max) {
     flag = "status__flag--full";
   }
