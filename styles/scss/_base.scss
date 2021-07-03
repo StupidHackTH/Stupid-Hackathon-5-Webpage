@@ -17,6 +17,9 @@ $lg-size: 2.25 * $md-size;
 $xl-size: 3 * $md-size;
 $xxl-size: 4 * $md-size;
 
+$cursor-auto-url: url("../cursor.png");
+$cursor-click-url: url("../cursor-click.png");
+
 $breakpoints: (
     small: 540px,
     medium: 710px,
@@ -37,6 +40,11 @@ body {
     font-size: $md-size;
     color: $stupid-black;
     font-family: "FA Sysfont C", monospace !important;
+    cursor: $cursor-auto-url, auto;
+}
+
+a {
+    cursor: $cursor-click-url, pointer;
 }
 
 ::selection {
