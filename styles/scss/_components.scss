@@ -88,6 +88,7 @@
                 justify-content: space-around;
                 align-items: flex-start;
                 margin: 0;
+                height: 40%;
             }
         }
 
@@ -105,7 +106,7 @@
         }
     
         @include respond-to(small) {
-            justify-content: start;
+            justify-content: center;
             padding: 10px 25px;
         }
     }
@@ -283,14 +284,6 @@
     &:hover {
         filter: brightness(90%);
     }
-
-    @include respond-to(small) {
-        font-size: 1rem;
-    }
-
-    @include respond-to(medium) {
-        font-size: 1.75rem;
-    }
 }
 
 .btn {
@@ -312,5 +305,13 @@
                     inset -6px -6px 0 #177013;
         background-color: $stupid-green;
         filter: brightness(.9);
+    }
+
+    @include respond-to(small) {
+        font-size: $md-size;
+    }
+
+    @include respond-to(medium) {
+        font-size: 1.75rem;
     }
 }
