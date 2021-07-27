@@ -1,5 +1,5 @@
 import { useState, useRef, FormEvent } from 'react'
-import { ToggleComponent } from 'src/@types'
+import { ToggleComponent } from '@types'
 
 const ToggleBlock: ToggleComponent = ({ title, content, flag }) => {
     const [toggled, setToggled] = useState(false)

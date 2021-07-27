@@ -1,5 +1,4 @@
-import BlockLayout from "@components/Shared/BlockLayout";
-import TextBox from "@components/Shared/TextBox";
+import { BlockLayout, TextBox } from '@components/Shared';
 import { FunctionComponent } from "react";
 
 const Sponsor: FunctionComponent = () => {

@@ -1,4 +1,4 @@
-import { BlockComponent } from "src/@types";
+import { BlockComponent } from "@types";
 
 const BlockLayout: BlockComponent = ({ header, children, variant, id }) => {
   return (

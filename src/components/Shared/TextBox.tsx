@@ -1,4 +1,4 @@
-import { TextComponent } from "src/@types";
+import { TextComponent } from "@types";
 
 const TextBox: TextComponent = ({ children, variant }) => {
     return (

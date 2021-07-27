@@ -1,10 +1,5 @@
 import Head from "next/head";
-import Header from "@components/Index/Header";
-import Registration from "@components/Index/Registration";
-import WhatIs from "@components/Index/WhatIs";
-import QA from "@components/Index/QA";
-import Sponsor from "@components/Index/Sponsor";
-import ContactUs from "@components/Index/ContactUs";
+import { Header, Registration, WhatIs, QA, Sponsor, ContactUs, Main } from "@components/Index";
 
 export default function Home() {
   return (
@@ -12,21 +7,21 @@ export default function Home() {
       <Head>
         <title>The 5th Stupid Hackathon Thailand</title>
       </Head>
-      <main
-        className="wrapper wrapper__space"
-      >
+      <Main>
         <Header />
 
+        {/*
         <WhatIs />
 
         <Registration />
 
         <QA />
+        */}
 
         <Sponsor />
 
         <ContactUs />
-      </main>
+      </Main>
     </>
   );
 }

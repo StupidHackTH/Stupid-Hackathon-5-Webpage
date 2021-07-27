@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FunctionComponent } from 'react'
-import Astronaut from '@components/Shared/Astronaut'
+import { Astronaut } from '@components/Shared'
 
 const Header: FunctionComponent = (props) => (
     <>

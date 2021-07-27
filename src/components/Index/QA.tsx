@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
-import BlockLayout from "@components/Shared/BlockLayout";
-import ToggleBlock from "@components/Shared/ToggleBlock";
+import { BlockLayout, ToggleBlock } from '@components/Shared';
 
 const THING = [
   {

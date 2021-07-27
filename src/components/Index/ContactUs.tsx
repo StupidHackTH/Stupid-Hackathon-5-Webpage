@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import { FunctionComponent } from 'react'
 
-import BlockLayout from '@components/Shared/BlockLayout'
-import TextBox from '@components/Shared/TextBox'
+import { BlockLayout, TextBox } from '@components/Shared'
 
 const ContactUs: FunctionComponent = (props) => (
     <>
