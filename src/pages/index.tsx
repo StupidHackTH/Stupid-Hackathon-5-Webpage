@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Header, Registration, WhatIs, QA, Sponsor, ContactUs, Main } from "@components/Index";
+import { Header, Registration, WhatIs, QA, Sponsor, ContactUs, Main, Agenda } from "@components/Index";
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
       <Main>
         <Header />
 
+        <Agenda />
         {/*
         <WhatIs />
 

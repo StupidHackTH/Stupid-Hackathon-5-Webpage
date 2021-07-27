@@ -28,8 +28,9 @@
         }
     }
 
-    & .section__header__title {
+    & .section__title {
         margin: 25px 0;
+        text-align: left;
 
         @include respond-to(extralarge) {
             padding-left: 5%;

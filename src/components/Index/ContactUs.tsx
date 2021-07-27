@@ -12,7 +12,7 @@ const ContactUs: FunctionComponent = (props) => (
                 scrolling="no"
                 frameBorder={0}
                 height={500}
-                width={850}
+                width={1050}
                 className="facebook-embed"
                 style={{width: "100%"}}
                 allowFullScreen={true}

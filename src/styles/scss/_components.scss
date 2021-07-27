@@ -4,6 +4,7 @@
     position: relative;
     z-index: 1;
     height: 100%;
+    text-align: center;
 
     &__space {
         background-color: $stupid-blue;
@@ -28,7 +29,11 @@
     }
 
     &__title-container {
-        margin: 30px 0 80px 0;
+        margin: 30px 0 50px 0;
+        
+        @include respond-to(small) {
+            margin: 30px 0;
+        }
     }
 
     &__title {
@@ -319,10 +324,28 @@
 
 .facebook-container {
     mix-blend-mode: difference;
+    display: inline-block;
 
     .facebook-embed {
         border: none;
         overflow: hidden;
         box-shadow: 0 0 2px 16px #3fb839;
+    }
+}
+
+.agenda-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    > div {
+      position: unset !important;
+    }
+
+    .agenda-img {
+        object-fit: contain;
+        width: 100% !important;
+        position: relative !important;
+        height: unset !important;
     }
 }

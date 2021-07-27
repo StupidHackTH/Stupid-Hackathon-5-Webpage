@@ -15,11 +15,11 @@ const Header: FunctionComponent = (props) => (
                 </h1>
             </div>
             <div className="btn-container">
-                <a href="#info" className="btn">
-                    M0re 1nFo
+                <a href="#agenda" className="btn">
+                    Ag3nD4
                 </a>
-                <a href="#register" className="btn">
-                    Regi$teR
+                <a href="#sponsor" className="btn">
+                    Giv3 Us M0n3¥
                 </a>
                 <Link href="/projects">
                     <a className="btn">Pr0jEctS</a>
