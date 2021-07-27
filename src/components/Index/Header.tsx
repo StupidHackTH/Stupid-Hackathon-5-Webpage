@@ -15,15 +15,15 @@ const Header: FunctionComponent = (props) => (
                 </h1>
             </div>
             <div className="btn-container">
+                <a href="#projects" className="btn">
+                    Pr0jEctS
+                </a>
                 <a href="#agenda" className="btn">
                     Ag3nD4
                 </a>
                 <a href="#sponsor" className="btn">
                     Giv3 Us M0n3¥
                 </a>
-                <Link href="/projects">
-                    <a className="btn">Pr0jEctS</a>
-                </Link>
             </div>
 
             <Astronaut />
