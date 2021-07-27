@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, FunctionComponent } from 'react'
 
-const Astronaut = (props) => {
-    let astro = useRef(null)
+const Astronaut: FunctionComponent = (props) => {
+    let astro = useRef<never | HTMLImageElement>(null)
     let [style, updateStyle] = useState({
         height: '50%',
         transform: 'unset'
@@ -9,8 +9,6 @@ const Astronaut = (props) => {
 
     useEffect(() => {
         const initY = 30
-
-        console.log(astro)
 
         let doc = document.documentElement
         let vw = Math.max(
@@ -33,8 +31,9 @@ const Astronaut = (props) => {
             passive: true
         })
 
-        const handleScroll = ({ target }) => {
+        const handleScroll: EventListener = ({ target }) => {
             // const x = window.scrollX + astro.getBoundingClientRect().left;
+            if (!astro?.current) return;
             const y = window.scrollY + astro.current.getBoundingClientRect().top
 
             // var y = (window.pageYOffset || target.scrollTop) - (doc.clientTop || 0);
@@ -67,9 +66,7 @@ const Astronaut = (props) => {
         })
 
         return () => {
-            window.removeEventListener('scroll', handleScroll, {
-                passive: true
-            })
+            window.removeEventListener('scroll', handleScroll)
         }
     }, [])
 

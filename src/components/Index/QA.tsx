@@ -1,5 +1,6 @@
-import BlockLayout from "../shared/BlockLayout";
-import ToggleBlock from "../shared/ToggleBlock";
+import { FunctionComponent } from "react";
+import BlockLayout from "@components/Shared/BlockLayout";
+import ToggleBlock from "@components/Shared/ToggleBlock";
 
 const THING = [
   {
@@ -29,13 +30,13 @@ const THING = [
   }
 ];
 
-const QA = (props) => {
+const QA: FunctionComponent = (props) => {
   const Blocks = THING.map((e, i) => {
     return <ToggleBlock
         title={e.title} 
         content={e.content}
         flag={e.flag}
-        max={e.max} key={e.title + i.toString()}
+        key={e.title + i.toString()}
       />
   })
   

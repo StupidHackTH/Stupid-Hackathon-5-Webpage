@@ -1,5 +1,6 @@
-import BlockLayout from "../shared/BlockLayout";
-import StatusBlock from "../shared/StatusBlock";
+import { FunctionComponent } from "react";
+import BlockLayout from "@components/Shared/BlockLayout";
+import StatusBlock from "@components/Shared/StatusBlock";
 
 const THING = [
   {
@@ -34,7 +35,7 @@ const THING = [
   },
 ]
 
-const Registration = (props) => {
+const Registration: FunctionComponent = (props) => {
   const Blocks = THING.map((e, i) => {
     return <StatusBlock
         title={e.title} 

@@ -38,6 +38,7 @@
             background-color: $stupid-black;
             color: $stupid-white;
             padding: 16px;
+            transition: all 300ms ease;
         }
     }
 
@@ -313,5 +314,15 @@
 
     @include respond-to(medium) {
         font-size: 1.75rem;
+    }
+}
+
+.facebook-container {
+    mix-blend-mode: difference;
+
+    .facebook-embed {
+        border: none;
+        overflow: hidden;
+        box-shadow: 0 0 2px 16px #3fb839;
     }
 }

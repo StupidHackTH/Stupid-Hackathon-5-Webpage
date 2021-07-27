@@ -1,4 +1,6 @@
-const StatusBlock = ({ title, current, max, desc }) => {
+import { StatusComponent } from "src/@types";
+
+const StatusBlock: StatusComponent = ({ title, current, max, desc }) => {
   let flag = "status__flag--active";
 
   if (current >= max) {

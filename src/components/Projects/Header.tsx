@@ -1,8 +1,9 @@
 import Link from 'next/link'
+import { FunctionComponent } from 'react'
 
-import Astronaut from '../shared/Astronaut'
+import Astronaut from '@components/Shared/Astronaut'
 
-const Header = (props) => (
+const Header: FunctionComponent = (props) => (
     <>
         <header className="section section__header" id="header-index">
             <div className="section__title-container">

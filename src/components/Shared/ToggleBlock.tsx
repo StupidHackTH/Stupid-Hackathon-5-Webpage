@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, FormEvent } from 'react'
+import { ToggleComponent } from 'src/@types'
 
-const ToggleBlock = ({ title, content, flag }) => {
+const ToggleBlock: ToggleComponent = ({ title, content, flag }) => {
     const [toggled, setToggled] = useState(false)
-    const contentContainer = useRef(null)
+    const contentContainer = useRef<never | HTMLDivElement>(null)
 
-    const handleClick = (e) => setToggled(!toggled)
+    const handleClick = (e: FormEvent<HTMLElement>) => setToggled(!toggled)
 
     return (
         <>
@@ -12,7 +13,7 @@ const ToggleBlock = ({ title, content, flag }) => {
                 <div
                     className="toggle__header  nes-pointer"
                     onClick={handleClick}
-                    tabIndex="0"
+                    tabIndex={0}
                 >
                     <div
                         className={`toggle__flag toggle__flag--${
@@ -25,9 +26,9 @@ const ToggleBlock = ({ title, content, flag }) => {
                 </div>
                 <div
                     className="toggle__body"
-                    style={{
+                    style={contentContainer.current ? {
                         height: toggled ? contentContainer.current?.clientHeight + 50 : '0'
-                    }}
+                    } : {}}
                 >
                     <div ref={contentContainer} className="toggle__content">
                         <p>{content}</p>

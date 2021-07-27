@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Header from "../components/index/Header.js";
-import Registration from "../components/index/Registration.js";
-import WhatIs from "../components/index/WhatIs.js";
-import QA from "../components/index/QA.js";
-import Sponsor from "../components/index/Sponsor.js";
-import ContactUs from "../components/index/ContactUs.js";
-
-// TODO Navbar
+import Header from "@components/Index/Header";
+import Registration from "@components/Index/Registration";
+import WhatIs from "@components/Index/WhatIs";
+import QA from "@components/Index/QA";
+import Sponsor from "@components/Index/Sponsor";
+import ContactUs from "@components/Index/ContactUs";
 
 export default function Home() {
   return (

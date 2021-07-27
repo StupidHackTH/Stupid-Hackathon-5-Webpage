@@ -1,7 +1,8 @@
-import BlockLayout from "../shared/BlockLayout";
-import TextBox from "../shared/TextBox";
+import { FunctionComponent } from "react";
+import BlockLayout from "@components/Shared/BlockLayout";
+import TextBox from "@components/Shared/TextBox";
 
-const Whatis = (props) => {
+const Whatis: FunctionComponent = (props) => {
   return (
     <>
       <BlockLayout header="What is The Stupid Hackathon?" variant="1" id="info">
