@@ -6,7 +6,7 @@
     height: 100%;
     text-align: center;
 
-    &__space {
+    &.-space {
         background-color: $stupid-blue;
         background: url("/bg.webp");
         background-attachment: fixed;
@@ -18,36 +18,17 @@
     cursor: $cursor-click-url, pointer;
 }
 
-.section {
+.section-block {
     margin-left: auto;
     margin-right: auto;
     padding: 0;
     max-width: 100vw !important;
 
-    h2 {
+    h3 {
         font-size: $lg-size;
     }
 
-    &__title-container {
-        margin: 30px 0 50px 0;
-        
-        @include respond-to(small) {
-            margin: 30px 0;
-        }
-    }
-
-    &__title {
-        font-size: $xl-size;
-
-        span {
-            background-color: $stupid-black;
-            color: $stupid-white;
-            padding: 16px;
-            transition: all 300ms ease;
-        }
-    }
-
-    &__container {
+    > .section-container {
         padding: 5% 10%;
         border-top: 5px solid $stupid-black;
 
@@ -60,69 +41,95 @@
         }
     }
 
-    &__body {
+    .body {
         font-size: $md-size;
     }
 
-    &__header {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 0 150px;
-        height: 100vh;
-
-        & .section__title {
-            line-height: 1;
-            font-size: 3.75rem;
-            color: white;
-
-            @include respond-to(extralarge) {
-                font-size: $xxl-size;
-            }
-        }
-        
-        & .btn-container {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin: 25px 0;
-    
-            @include respond-to(small) {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: flex-start;
-                margin: 0;
-                height: 40%;
-            }
-        }
-
-        @include respond-to(extralarge) {
-            padding: 0 20%;
-        }
-        
-        @include respond-to(large) {
-            justify-content: space-around;
-            padding: 0 65px;
-        }
-    
-        @include respond-to(medium) {
-            padding: 0 50px;
-        }
-    
-        @include respond-to(small) {
-            justify-content: center;
-            padding: 10px 25px;
-        }
-    }
-
-    &--v-1 {
+    &.-v1 {
         background-color: rgba(255, 221, 29, 0.816);
     }
 
-    &--v-2 {
+    &.-v2 {
         background-color: rgba(228, 44, 188, 0.816);
+    }
+}
+
+.section-block .title-container {
+    margin: 30px 0 50px 0;
+    
+    @include respond-to(small) {
+        margin: 30px 0;
+    }
+    
+    .title {
+        font-size: $xl-size;
+        
+        > .inner {
+            background-color: $stupid-black;
+            color: white;
+            padding: 16px;
+            transition: all 200ms ease;
+            
+            &:hover,
+            &:focus {
+                background-color: $stupid-red;
+                color: white;
+            }
+        }
+    }
+}
+
+
+.section-block.-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 150px;
+    height: 100vh;
+
+    > .title-container > .title {
+        line-height: 1;
+        font-size: 3.75rem;
+        color: white;
+
+        @include respond-to(extralarge) {
+            font-size: $xxl-size;
+        }
+    }
+    
+    > .btn-container {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 25px 0;
+
+        @include respond-to(small) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 0;
+            height: 40%;
+        }
+    }
+
+    @include respond-to(extralarge) {
+        padding: 0 20%;
+    }
+    
+    @include respond-to(large) {
+        justify-content: space-around;
+        padding: 0 65px;
+    }
+
+    @include respond-to(medium) {
+        padding: 0 50px;
+    }
+
+    @include respond-to(small) {
+        justify-content: center;
+        padding: 10px 25px;
     }
 }
 
@@ -134,68 +141,70 @@
     border: 5px solid $stupid-black;
     margin: 25px 0;
 
-    &--green {
+    &.-green {
         background-color: $stupid-green;
     }
-    &--yellow {
+    &.-yellow {
         background-color: $stupid-yellow;
     }
-    &--pink {
+    &.-pink {
         background-color: $stupid-pink;
     }
-    &--red {
+    &.-red {
         background-color: $stupid-red;
     }
-    &--orange {
+    &.-orange {
         background-color: $stupid-orange;
     }
 }
 
-.status {
+.status-block {
     @include card;
 
-    &__title h2 {
+    > .title {
         font-size: $lg-size;
         margin-top: 0.75rem;
     }
 
-    &__description p {
+    > .description {
         font-size: $md-size;
     }
 
-    &__count {
+    > .count {
         font-size: $lg-size;
         line-height: 2rem;
         text-align: right;
     }
+}
 
-    &__flag {
-        width: 1rem;
-        height: 1rem;
+.status-block > .flag {
+    width: 1rem;
+    height: 1rem;
 
-        &--active {
-            background-color: $stupid-green;
-        }
+    &.-active {
+        background-color: $stupid-green;
+    }
 
-        &--full {
-            background-color: $stupid-red;
-        }
+    &.-full {
+        background-color: $stupid-red;
     }
 }
 
-.toggle {
-    &--toggled &__body {
+.toggle-block {
+    margin-bottom: 1.5rem;
+
+    &.-toggled > .toggle-body {
         transform: translateY(0px);
         max-height: 250px;
         height: auto;
         padding: 25px;
     }
 
-    &--toggled &__title h2::before {
+    &.-toggled .title h2::before {
         transform: translateY(-8px) rotate(90deg);
     }
 
-    &__header {
+    > .toggle-header {
         @include card;
         padding-bottom: 48px;
         margin-bottom: 0;
@@ -213,50 +222,7 @@
         }
     }
 
-    &__flag {
-        width: 1rem;
-        height: 1rem;
-        background-color: $stupid-yellow;
-
-        &--green {
-            background-color: $stupid-green;
-        }
-        &--yellow {
-            background-color: $stupid-yellow;
-        }
-        &--pink {
-            background-color: $stupid-pink;
-        }
-        &--red {
-            background-color: $stupid-red;
-        }
-        &--orange {
-            background-color: $stupid-orange;
-        }
-    }
-
-    &__title {
-        transition: all 0.25s ease-out;
-
-        h2 {
-            font-size: $lg-size;
-            margin-top: 0.75rem;
-            
-            &::before {
-                content: ">";
-                display: inline-block;
-    
-                font-size: $lg-size;
-                vertical-align: middle;
-                margin-right: 0.7rem;
-                transform: translateY(-10px);
-    
-                transition: transform 0.2s ease-out;
-            }
-        }
-    }
-
-    &__body {
+    > .toggle-body {
         @include card;
 
         margin-bottom: 0;
@@ -270,25 +236,58 @@
         position: relative;
         z-index: 0;
     }
+}
 
-    &__content {
+.toggle-header {
+    > .title {
+        transition: all 0.25s ease-out;
+        font-size: $lg-size;
+        margin-top: 0.75rem;
+        
+        &::before {
+            content: ">";
+            display: inline-block;
+
+            font-size: $lg-size;
+            vertical-align: middle;
+            margin-right: 0.7rem;
+            transform: translateY(-10px);
+
+            transition: transform 0.2s ease-out;
+        }
+    }
+
+    > .flag {
+        width: 1rem;
+        height: 1rem;
+        background-color: $stupid-yellow;
+    
+        &.-green {
+            background-color: $stupid-green;
+        }
+        &.-yellow {
+            background-color: $stupid-yellow;
+        }
+        &.-pink {
+            background-color: $stupid-pink;
+        }
+        &.-red {
+            background-color: $stupid-red;
+        }
+        &.-orange {
+            background-color: $stupid-orange;
+        }
+    }
+}
+
+.toggle-body {
+    > .content {
         padding: 0.5rem 1rem;
 
         p {
             font-size: $xm-size;
             margin: 0;
         }
-    }
-
-    margin-bottom: 1.5rem;
-}
-
-.nes-btn__green {
-    background-color: $stupid-green !important;
-    font-size: 2.25rem;
-
-    &:hover {
-        filter: brightness(90%);
     }
 }
 

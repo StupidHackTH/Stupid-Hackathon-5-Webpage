@@ -46,7 +46,7 @@ const Registration: FunctionComponent = (props) => {
 
   return (
     <>
-      <BlockLayout header="Registration" variant="2" id="register">
+      <BlockLayout header="Registration" variant={2} id="register">
         {Blocks}
       </BlockLayout>
     </>

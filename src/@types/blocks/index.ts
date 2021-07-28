@@ -1,4 +1,5 @@
-import { ReactNode, FunctionComponent } from "react";
+import { FunctionComponent } from "react";
+import { Team } from "../team";
 
 export type TextBox = {
     variant: string
@@ -8,7 +9,7 @@ export type TextComponent = FunctionComponent<TextBox>
 
 export type BlockLayout = {
 	header: string,
-	variant: string,
+	variant: number,
 	id: string
 }
 
@@ -30,3 +31,11 @@ export type StatusBlock = {
 }
 
 export type StatusComponent = FunctionComponent<StatusBlock>
+
+export type TeamProps = {
+	teams: Team[]
+}
+
+export type HomeComponent = FunctionComponent<TeamProps>
+
+export type ProjectComponent = FunctionComponent<TeamProps>

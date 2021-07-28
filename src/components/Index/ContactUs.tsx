@@ -3,9 +3,9 @@ import { FunctionComponent } from 'react'
 
 import { BlockLayout, TextBox } from '@components/Shared'
 
-const ContactUs: FunctionComponent = (props) => (
+const ContactUs: FunctionComponent = () => (
     <>
-        <BlockLayout header="Contact Us" variant="1" id="contact">
+        <BlockLayout header="Contact Us" variant={2} id="contact">
             <div className="facebook-container">
               <iframe
                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FStupidHackTH%2F&tabs=timeline&width=850&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=220338228488151"

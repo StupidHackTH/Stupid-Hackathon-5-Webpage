@@ -4,7 +4,7 @@ import { FunctionComponent } from "react";
 const Sponsor: FunctionComponent = () => {
   return (
     <>
-      <BlockLayout header="Send us money" variant="2" id="sponsor">
+      <BlockLayout header="Send us money" variant={1} id="sponsor">
         <div className="facebook-container">
           <iframe
             src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FStupidHackTH%2Fposts%2F1481726675493567&show_text=true&width=500"
