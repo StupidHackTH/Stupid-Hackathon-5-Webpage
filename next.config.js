@@ -12,4 +12,9 @@ module.exports = {
 
         return config
     },
+    env: {
+        PROJECT_ID: process.env.PROJECT_ID,
+        PRIVATE_ID: process.env.PRIVATE_ID,
+        CLIENT_EMAIL: process.env.CLIENT_EMAIL
+    }
 }
