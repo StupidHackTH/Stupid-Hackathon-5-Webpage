@@ -1,4 +1,3 @@
-
 $stupid-blue: #1b00ff;
 $stupid-green: #06FF00;
 $stupid-yellow: #EFE719;
@@ -8,6 +7,18 @@ $stupid-orange: #ff9a00;
 $stupid-red: #ff2600;
 $stupid-black: #020202;
 $stupid-white: #f0f0f0;
+
+$stupid: (
+    blue: $stupid-blue,
+    green: $stupid-green,
+    yellow: $stupid-yellow,
+    pink: $stupid-pink,
+    violet: $stupid-violet,
+    orange: $stupid-orange,
+    red: $stupid-red,
+    black: $stupid-black,
+    white: $stupid-white
+);
 
 $md-size: 16px;
 
@@ -31,6 +42,18 @@ html {
     background-color: $stupid-blue;
     scroll-behavior: smooth;
     font-size: $md-size;
+}
+
+h1, h2 {
+    font-weight: 500;
+}
+
+h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+p {
+    font-weight: 300;
 }
 
 body {

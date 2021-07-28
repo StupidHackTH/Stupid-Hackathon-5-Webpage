@@ -1,14 +1,40 @@
 @import '_mixin.scss';
 
-#contact {
+.section-container#contact {
     @include respond-to(small) {
-        .section-block > .title-container {
+        & > .title-container {
             margin-bottom: 36px;
         }
     }
 }
 
-#header-section {
+.facebook-container {
+    mix-blend-mode: luminosity;
+    
+    .facebook-embed {
+        width: 61%;
+
+        @include respond-to(1025px) {
+            width: 75%;
+        }
+
+        @include respond-to(833px) {
+            width: 85%;
+        }
+
+        @include respond-to(747px) {
+            width: 100%;
+        }
+    }
+}
+
+.section-container#agenda {
+    @include respond-to(extralarge) {
+        padding: 5% 20%;
+    }
+}
+
+.section-block#header-section {
     .nes-btn {
         margin: 10px 0;
 
@@ -59,5 +85,22 @@
     @include respond-to(small) {
         top: 56%;
         right: -15px;
+    }
+}
+
+.agenda-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    > div {
+      position: unset !important;
+    }
+
+    .agenda-img {
+        object-fit: contain;
+        width: 100% !important;
+        position: relative !important;
+        height: unset !important;
     }
 }

@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
 import { BlockLayout, ToggleBlock } from '@components/Shared';
+import { SectionComponent } from "@types";
 
 const THING = [
   {
@@ -29,7 +29,7 @@ const THING = [
   }
 ];
 
-const QA: FunctionComponent = (props) => {
+const QA: SectionComponent = ({ variant }) => {
   const Blocks = THING.map((e, i) => {
     return <ToggleBlock
         title={e.title} 
@@ -41,7 +41,7 @@ const QA: FunctionComponent = (props) => {
   
   return (
     <>
-      <BlockLayout header="FAQ" variant={1} id="questions">
+      <BlockLayout header="FAQ" variant={variant} id="questions">
         {Blocks}
       </BlockLayout>
     </>

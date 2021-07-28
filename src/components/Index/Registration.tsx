@@ -1,5 +1,5 @@
-import { FunctionComponent } from "react";
 import { BlockLayout, StatusBlock } from '@components/Shared';
+import { SectionComponent } from "@types";
 
 const THING = [
   {
@@ -34,7 +34,7 @@ const THING = [
   },
 ]
 
-const Registration: FunctionComponent = (props) => {
+const Registration: SectionComponent = ({ variant }) => {
   const Blocks = THING.map((e, i) => {
     return <StatusBlock
         title={e.title} 
@@ -46,7 +46,7 @@ const Registration: FunctionComponent = (props) => {
 
   return (
     <>
-      <BlockLayout header="Registration" variant={2} id="register">
+      <BlockLayout header="Registration" variant={variant} id="register">
         {Blocks}
       </BlockLayout>
     </>

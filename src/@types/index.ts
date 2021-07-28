@@ -4,7 +4,8 @@ export type {
 	ToggleBlock, ToggleComponent,
 	StatusBlock, StatusComponent,
 	HomeComponent,
-	ProjectComponent
+	ProjectComponent,
+	SectionComponent
 } from './blocks'
 
 export type {

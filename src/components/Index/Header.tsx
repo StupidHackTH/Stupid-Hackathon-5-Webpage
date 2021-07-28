@@ -20,8 +20,8 @@ const Header: FunctionComponent = (props) => (
                 <a href="#projects" className="btn">
                     Pr0jEctS
                 </a>
-                <a href="#sponsor" className="btn">
-                    S3nD Us M0n3¥
+                <a href="#awards" className="btn">
+                    Aw4rds
                 </a>
             </div>
 

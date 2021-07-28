@@ -33,7 +33,7 @@
         border-top: 5px solid $stupid-black;
 
         @include respond-to(extralarge) {
-            padding: 5% 20%;
+            padding: 5% 15%;
         }
 
         @include respond-to(small) {
@@ -141,21 +141,7 @@
     border: 5px solid $stupid-black;
     margin: 25px 0;
 
-    &.-green {
-        background-color: $stupid-green;
-    }
-    &.-yellow {
-        background-color: $stupid-yellow;
-    }
-    &.-pink {
-        background-color: $stupid-pink;
-    }
-    &.-red {
-        background-color: $stupid-red;
-    }
-    &.-orange {
-        background-color: $stupid-orange;
-    }
+    @include dynamic-bg();
 }
 
 .status-block {
@@ -262,21 +248,7 @@
         height: 1rem;
         background-color: $stupid-yellow;
     
-        &.-green {
-            background-color: $stupid-green;
-        }
-        &.-yellow {
-            background-color: $stupid-yellow;
-        }
-        &.-pink {
-            background-color: $stupid-pink;
-        }
-        &.-red {
-            background-color: $stupid-red;
-        }
-        &.-orange {
-            background-color: $stupid-orange;
-        }
+        @include dynamic-bg();
     }
 }
 
@@ -319,33 +291,5 @@
 
     @include respond-to(medium) {
         font-size: 1.75rem;
-    }
-}
-
-.facebook-container {
-    mix-blend-mode: difference;
-    display: inline-block;
-
-    .facebook-embed {
-        border: none;
-        overflow: hidden;
-        box-shadow: 0 0 2px 16px #3fb839;
-    }
-}
-
-.agenda-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    > div {
-      position: unset !important;
-    }
-
-    .agenda-img {
-        object-fit: contain;
-        width: 100% !important;
-        position: relative !important;
-        height: unset !important;
     }
 }

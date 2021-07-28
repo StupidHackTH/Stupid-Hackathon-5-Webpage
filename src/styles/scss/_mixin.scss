@@ -22,7 +22,21 @@
         } 
     }
 
+    @else if type_of($breakpoint) == number {
+        @media screen and (max-width: $breakpoint) {
+            @content;
+        }
+    }
+
     @else {
         @warn "Unknown `#{$breakpoint}` in $breakpoints";
+    }
+}
+
+@mixin dynamic-bg() {
+    @each $color, $value in $stupid {
+        &.-#{$color} {
+           background-color: $value; 
+        }
     }
 }
