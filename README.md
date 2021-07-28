@@ -1,3 +1,3 @@
-# Stupid Hack 5 landing page
+# Stupid Hackathon 5 webpage
 
-live demo : 
+https://sht-5.vercel.app
