@@ -1,23 +1,23 @@
 import { StatusComponent } from "@types";
 
 const StatusBlock: StatusComponent = ({ title, current, max, desc }) => {
-  let flag = "status__flag--active";
+  let flag = "-active";
 
   if (current >= max) {
-    flag = "status__flag--full";
+    flag = "-full";
   }
 
   return (
     <>
-      <div className="status">
-        <div className={`status__flag ${flag}`}></div>
-        <div className="status__title">
-          <h2>{title}</h2>
+      <div className="status-block">
+        <div className={`flag ${flag}`}></div>
+        <div className="title">
+          <h3>{title}</h3>
         </div>
-        <div className="status__description">
+        <div className="description">
           <p>{desc}</p>
         </div>
-        <div className="status__count">
+        <div className="count">
           {current}/{max}
         </div>
       </div>

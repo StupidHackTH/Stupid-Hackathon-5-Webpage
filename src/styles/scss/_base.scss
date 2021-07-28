@@ -45,6 +45,11 @@ body {
 
 a {
     cursor: $cursor-click-url, pointer;
+    text-decoration: none;
+
+    &:hover, &:active {
+        color: inherit;
+    }
 }
 
 ::selection {

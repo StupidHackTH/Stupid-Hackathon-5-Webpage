@@ -3,12 +3,12 @@ import { BlockComponent } from "@types";
 const BlockLayout: BlockComponent = ({ header, children, variant, id }) => {
   return (
     <>
-      <section className={`section section--v-${variant || 0}  container`}>
-        <div className="section__container" id={id}>
-          <div className="section__title-container">
-            <a href={`#${id}`}><h1 className="section__title"><span>{header}</span></h1></a>
+      <section className={`section-block -v${variant || 0}`}>
+        <div className="section-container" id={id}>
+          <div className="title-container">
+            <a href={`#${id}`}><h2 className="title"><span className="inner">{header}</span></h2></a>
           </div>
-          <div className="section__body">
+          <div className="body">
             {children}
           </div>
         </div>

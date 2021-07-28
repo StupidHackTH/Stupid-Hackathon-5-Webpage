@@ -1,12 +1,11 @@
-import Link from 'next/link'
 import { FunctionComponent } from 'react'
 import { Astronaut } from '@components/Shared'
 
 const Header: FunctionComponent = (props) => (
     <>
-        <header className="section section__header" id="header-index">
-            <div className="section__title-container">
-                <h1 className="section__title">
+        <header className="section-block -header" id="header-section">
+            <div className="title-container">
+                <h1 className="title">
                     The 5th
                     <br />
                     StuPId H@CK
@@ -18,12 +17,12 @@ const Header: FunctionComponent = (props) => (
                 <a href="#agenda" className="btn">
                     Ag3nD4
                 </a>
-                <a href="#sponsor" className="btn">
-                    Giv3 Us M0n3¥
+                <a href="#projects" className="btn">
+                    Pr0jEctS
                 </a>
-                <Link href="/projects">
-                    <a className="btn">Pr0jEctS</a>
-                </Link>
+                <a href="#sponsor" className="btn">
+                    S3nD Us M0n3¥
+                </a>
             </div>
 
             <Astronaut />

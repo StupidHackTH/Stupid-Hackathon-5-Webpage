@@ -41,7 +41,7 @@ const QA: FunctionComponent = (props) => {
   
   return (
     <>
-      <BlockLayout header="FAQ" variant="1" id="questions">
+      <BlockLayout header="FAQ" variant={1} id="questions">
         {Blocks}
       </BlockLayout>
     </>

@@ -9,28 +9,28 @@ const ToggleBlock: ToggleComponent = ({ title, content, flag }) => {
 
     return (
         <>
-            <div className={`toggle ${toggled ? 'toggle--toggled' : ''}`}>
+            <div className={`toggle-block ${toggled ? '-toggled' : ''}`}>
                 <div
-                    className="toggle__header  nes-pointer"
+                    className="toggle-header  nes-pointer"
                     onClick={handleClick}
                     tabIndex={0}
                 >
                     <div
-                        className={`toggle__flag toggle__flag--${
+                        className={`flag -${
                             flag || 'yellow'
                         }`}
                     ></div>
-                    <div className="toggle__title">
-                        <h2>{title}</h2>
+                    <div className="title">
+                        <h3>{title}</h3>
                     </div>
                 </div>
                 <div
-                    className="toggle__body"
+                    className="toggle-body"
                     style={contentContainer.current ? {
                         height: toggled ? contentContainer.current?.clientHeight + 50 : '0'
                     } : {}}
                 >
-                    <div ref={contentContainer} className="toggle__content">
+                    <div ref={contentContainer} className="content">
                         <p>{content}</p>
                     </div>
                 </div>

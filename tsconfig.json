@@ -7,7 +7,7 @@
       "@pages/*": ["src/pages/*"],
       "@helpers/*": ["src/helpers/*"],
       "@types": ["src/@types/index.ts"],
-      "@types/*": ["src/@types/^"]
+      "@types/*": ["src/@types/*"]
     },
     "lib": [
       "es2020", "dom"

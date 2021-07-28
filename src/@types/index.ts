@@ -3,4 +3,10 @@ export type {
 	BlockLayout, BlockComponent,
 	ToggleBlock, ToggleComponent,
 	StatusBlock, StatusComponent,
+	HomeComponent,
+	ProjectComponent
 } from './blocks'
+
+export type {
+	Team
+} from './team'
