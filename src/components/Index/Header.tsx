@@ -14,9 +14,6 @@ const Header: FunctionComponent = (props) => (
                 </h1>
             </div>
             <div className="btn-container">
-                <a href="#projects" className="btn">
-                    Pr0jEctS
-                </a>
                 <a href="#agenda" className="btn">
                     Ag3nD4
                 </a>
