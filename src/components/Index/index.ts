@@ -6,4 +6,5 @@ export { default as Registration } from './Registration';
 export { default as Sponsor } from './Sponsor';
 export { default as WhatIs } from './WhatIs';
 export { default as Main } from './Main';
-export { default as Projects } from './Projects';
+export { default as Submissions } from './Submissions';
+export { default as Awards } from './Awards';

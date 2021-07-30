@@ -33,7 +33,7 @@
         border-top: 5px solid $stupid-black;
 
         @include respond-to(extralarge) {
-            padding: 5% 20%;
+            padding: 5% 15%;
         }
 
         @include respond-to(small) {
@@ -46,11 +46,15 @@
     }
 
     &.-v1 {
-        background-color: rgba(255, 221, 29, 0.816);
+        background-color: #ffdd1fd9;
     }
 
     &.-v2 {
-        background-color: rgba(228, 44, 188, 0.816);
+        background-color: #e42cbcd9;
+    }
+
+    &.-v3 {
+        background-color: #23b14bf5;
     }
 }
 
@@ -78,7 +82,6 @@
         }
     }
 }
-
 
 .section-block.-header {
     display: flex;
@@ -141,21 +144,7 @@
     border: 5px solid $stupid-black;
     margin: 25px 0;
 
-    &.-green {
-        background-color: $stupid-green;
-    }
-    &.-yellow {
-        background-color: $stupid-yellow;
-    }
-    &.-pink {
-        background-color: $stupid-pink;
-    }
-    &.-red {
-        background-color: $stupid-red;
-    }
-    &.-orange {
-        background-color: $stupid-orange;
-    }
+    @include dynamic-bg();
 }
 
 .status-block {
@@ -174,6 +163,102 @@
         font-size: $lg-size;
         line-height: 2rem;
         text-align: right;
+    }
+}
+
+.project-card {
+    @include card;
+
+    margin-top: 2rem;
+    border: 2px solid #000;
+
+    .name {
+        margin-bottom: 0;
+        font-size: 2rem;
+        overflow-wrap: break-word;
+    }
+
+    .description {
+        margin: 30px 0;
+    }
+
+    .team-info {
+        display: grid;
+        grid-template-areas: 'x y';
+        
+        > .teamname {
+            font-size: 1rem;
+            margin-right: 1rem;
+            grid-area: 'x';
+        }
+
+        > .members {
+            margin-left: auto;
+            grid-area: 'y';
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        @include respond-to(small) {
+            grid-template-areas: 
+            'x'
+            'y';
+        }
+    }
+}
+
+.project-card.-v1 {
+    .name, .label {
+        color: #111;
+    }
+
+    .teamname, .members {
+        color: #333;
+    }
+
+    .separator {
+        border: 1.5px solid #111;
+        background-color: #111;
+    }
+
+    .description {
+        color: #333;
+    }
+}
+
+.project-card.-v2 {
+    .name, .label {
+        color: #eee;
+    }
+
+    .teamname, .members {
+        color: #dadada;
+    }
+
+    .separator {
+        border: 1.5px solid #eee;
+        background-color: #eee;
+    }
+
+    .description {
+        color: #dadada
+    }
+}
+
+.video-container {
+    width: 100%;
+
+    > .video {
+        width: 100%;
+
+        cursor: $cursor-auto-url, auto;
+
+        :hover, :active {
+            cursor: $cursor-click-url, pointer;
+        }
     }
 }
 
@@ -262,21 +347,7 @@
         height: 1rem;
         background-color: $stupid-yellow;
     
-        &.-green {
-            background-color: $stupid-green;
-        }
-        &.-yellow {
-            background-color: $stupid-yellow;
-        }
-        &.-pink {
-            background-color: $stupid-pink;
-        }
-        &.-red {
-            background-color: $stupid-red;
-        }
-        &.-orange {
-            background-color: $stupid-orange;
-        }
+        @include dynamic-bg();
     }
 }
 
@@ -322,30 +393,23 @@
     }
 }
 
-.facebook-container {
-    mix-blend-mode: difference;
-    display: inline-block;
+.btn.-purple {
+    background-color: $stupid-violet;
 
-    .facebook-embed {
-        border: none;
-        overflow: hidden;
-        box-shadow: 0 0 2px 16px #3fb839;
-    }
-}
+    box-shadow: 4px 0 0 #000,
+                0 4px 0 #000,
+                -4px 0 0 #000,
+                0 -4px 0 #000,
+                inset -4px -4px 0 #70136b;
 
-.agenda-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    > div {
-      position: unset !important;
-    }
-
-    .agenda-img {
-        object-fit: contain;
-        width: 100% !important;
-        position: relative !important;
-        height: unset !important;
+    &:hover,
+    &:focus {
+        box-shadow: 4px 0 0 #000,
+                    0 4px 0 #000,
+                    -4px 0 0 #000,
+                    0 -4px 0 #000,
+                    inset -6px -6px 0 #70136b;
+        background-color: $stupid-violet;
+        filter: brightness(.9);
     }
 }

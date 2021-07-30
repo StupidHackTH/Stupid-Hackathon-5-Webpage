@@ -1,10 +1,10 @@
-import { FunctionComponent } from "react";
 import { BlockLayout, TextBox } from '@components/Shared';
+import { SectionComponent } from '@types';
 
-const Whatis: FunctionComponent = (props) => {
+const Whatis: SectionComponent = ({ variant }) => {
   return (
     <>
-      <BlockLayout header="What is The Stupid Hackathon?" variant={1} id="info">
+      <BlockLayout header="What is The Stupid Hackathon?" variant={variant} id="info">
         <TextBox variant="yellow">
         Stupid Hackathon is something that is something that is something that is something.
         </TextBox>

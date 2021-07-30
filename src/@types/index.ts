@@ -4,9 +4,13 @@ export type {
 	ToggleBlock, ToggleComponent,
 	StatusBlock, StatusComponent,
 	HomeComponent,
-	ProjectComponent
+	ProjectViewComponent,
+	ProjectComponent,
+	SectionComponent
 } from './blocks'
 
 export type {
-	Team
+	Team,
+	Project,
+	ProjectInfo
 } from './team'
