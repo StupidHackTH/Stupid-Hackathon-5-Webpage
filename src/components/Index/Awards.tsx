@@ -6,7 +6,7 @@ const Whatis: SectionComponent = ({ variant }) => {
     <>
       <BlockLayout header="Awards" variant={variant} id="awards">
         <TextBox variant="white">
-        Stupid Hackathon is something that is something that is something that is something.
+          Coming Soon! {":)"}
         </TextBox>
       </BlockLayout>
     </>

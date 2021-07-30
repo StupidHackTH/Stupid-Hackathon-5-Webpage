@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react";
-import { Team } from "../team";
+import { Team, Project } from "../team";
 
 type SectionProps = {
 	variant: number
@@ -38,10 +38,14 @@ export type StatusBlock = {
 
 export type StatusComponent = FunctionComponent<StatusBlock>
 
-export type TeamProps  = SectionProps & {
+export type TeamProps = SectionProps & {
 	teams: Team[]
 }
 
 export type HomeComponent = FunctionComponent<TeamProps>
 
-export type ProjectComponent = FunctionComponent<TeamProps>
+// Project
+
+export type ProjectComponent = FunctionComponent<Project>
+
+export type ProjectViewComponent = FunctionComponent<TeamProps>

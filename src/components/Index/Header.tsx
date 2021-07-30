@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import { Astronaut } from '@components/Shared'
+import Link from 'next/link'
 
 const Header: FunctionComponent = (props) => (
     <>
@@ -14,12 +15,14 @@ const Header: FunctionComponent = (props) => (
                 </h1>
             </div>
             <div className="btn-container">
-                <a href="#agenda" className="btn">
-                    Ag3nD4
+                <a href="#submissions" className="btn">
+                    Subm1ssi0ns
                 </a>
-                <a href="#projects" className="btn">
-                    Pr0jEctS
-                </a>
+                <Link href="/projects">
+                    <a className="btn">
+                        Al1 Pr0jEctS
+                    </a>
+                </Link>
                 <a href="#awards" className="btn">
                     Aw4rds
                 </a>

@@ -1,14 +1,21 @@
 export type Project = {
+	color: string,
+	teamname: string,
 	name: string,
 	description: string,
-	url: string
+	link: string,
+	members: string[]
+}
+
+export type ProjectInfo = {
+	name: string,
+	description: string,
+	link: string
 }
 
 export type Team = {
-	admins: string[],
 	color: string,
 	members: string[],
 	name: string,
-	projects?: Project[],
-	mainproject?: Project
+	projects?: ProjectInfo[]
 }

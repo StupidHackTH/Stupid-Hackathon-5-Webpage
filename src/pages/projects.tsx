@@ -1,50 +1,43 @@
+import { FunctionComponent } from "react";
+import { BlockLayout, Project } from "@components/Shared"
+import { Project as ProjectType, HomeComponent, Team } from "@types";
 import Head from "next/head";
-import { Header, Registration, WhatIs, QA, Sponsor, ContactUs, Main, Agenda, Submissions, Awards } from "@components/Index";
-import { GetStaticProps } from "next";
+import Link from "next/link";
 import initDB from "@helpers/db";
-import { HomeComponent, ProjectInfo } from "@types";
+import { GetStaticProps } from "next";
 
-const Home: HomeComponent = ({ teams }) => {
-  return (
-    <>
-      <Head>
-        <title>The 5th Stupid Hackathon Thailand</title>
-      </Head>
-      <Main>
-        <Header />
+const Projects: HomeComponent = ({ teams }) => {
+	let projects: ProjectType[] = []
 
-        <Agenda variant={1} />
+	teams.forEach((t) => {
+		if (!t.projects) return;
+		t.projects.forEach((p) => {
+			projects.push({
+				color: t.color,
+				teamname: t.name,
+				name: p.name,
+				description: p.description,
+				link: p.link,
+				members: t.members
+			})
+		})
+	})
 
-        <Submissions teams={teams} variant={3} />
-        {
-        /*
+	const submissions = projects.map((t) => <Project members={t.members} key={t.name} name={t.name} color={t.color} description={t.description} teamname={t.teamname} link={t.link} />)
 
-        <WhatIs variant={1} />
-        <Registration variant={2} />
-
-        <QA variant={1} />
-        */
-        }
-
-        <Awards variant={1} />
-
-        {
-        /*
-        <Sponsor variant={2} />
-        */
-        }
-
-        <ContactUs variant={2} />
-      </Main>
-    </>
-  );
-};
-
-type TeamRes = {
-  color: string,
-  members: string[],
-  name: string,
-  projects?: ProjectInfo[]
+	return (
+		<>
+			<Head>
+        		<title>The 5th Stupid Hackathon Thailand</title>
+      		</Head>
+			<BlockLayout variant={1} header="Projects" id="projects">
+				<div className="back">
+					<Link href="/"><a className="btn -purple">back to main</a></Link>
+				</div>
+				{submissions}
+			</BlockLayout>
+		</>
+	);
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -87,8 +80,6 @@ export const getStaticProps: GetStaticProps = async () => {
       return res.name;
     })
 
-    team.projects = team.projects.slice(0, 1); // only get the first submission
-
     team.members = await Promise.all(team.members);
 
     delete team.admins;
@@ -103,4 +94,4 @@ export const getStaticProps: GetStaticProps = async () => {
 	}
 };
 
-export default Home;
+export default Projects;

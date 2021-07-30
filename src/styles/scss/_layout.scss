@@ -8,11 +8,43 @@
     }
 }
 
+.section-container#submissions {
+    @include respond-to(extralarge) {
+        padding: 5% 25%;
+    }
+}
+
+.section-container#projects {
+    min-height: 100vh;
+
+    @include respond-to(extralarge) {
+        padding: 5% 25%;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .back {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.section-container#awards .text-box {
+    text-align: left;
+}
+
 .facebook-container {
     mix-blend-mode: luminosity;
     
     .facebook-embed {
         width: 61%;
+        cursor: $cursor-auto-url, auto;
+
+        :hover, :active {
+            cursor: $cursor-click-url, pointer;
+        }
 
         @include respond-to(1025px) {
             width: 75%;

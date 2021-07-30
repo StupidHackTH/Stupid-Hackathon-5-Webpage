@@ -2,6 +2,7 @@ import admin from "firebase-admin";
 import cert from "./certificate";
 
 const initDB = () => {
+	console.log("initiating the db...")
 	try {
 		return admin.firestore();
 	} catch {

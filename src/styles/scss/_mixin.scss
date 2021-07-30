@@ -35,7 +35,7 @@
 
 @mixin dynamic-bg() {
     @each $color, $value in $stupid {
-        &.-#{$color} {
+        &.-#{""+$color} {
            background-color: $value; 
         }
     }
