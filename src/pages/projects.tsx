@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 	return {
 		props: { teams: await ret },
-		revalidate: 1 * 60
+		revalidate: 1 * 5
 	}
 };
 
