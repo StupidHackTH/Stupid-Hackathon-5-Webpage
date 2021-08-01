@@ -5,7 +5,7 @@ function getTextColor(color: string){
 
 	const [a, b, c] = colorCode.matchAll(/[0-9a-fA-F]{2}/ig);
   
-	if ((parseInt(a,16) + parseInt(b,16) + parseInt(c,16))/3 > 127) {
+	if (0.3*parseInt(a,16) + 0.6*parseInt(b,16) + 0.1*parseInt(c,16) > 127) {
 	  return 1
 	} else {
 	  return 2
