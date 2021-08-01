@@ -13,28 +13,6 @@ const Vote: HomeComponent = ({ teams }) => {
     const [auth, setAuth] = useState(true)
     // const [id,setId] = useState(null)
 
-    const router = useRouter();
-
-    useEffect(() => {
-        const { id } = router.query;
-        const firebase = getFirebase();
-        const db = firebase.firestore();
-        console.log(id, db)
-        const ress = db
-            .collection('VoteSessions')
-            .doc(id)
-            .get()
-            .then((snapshot) => {
-                console.log('hi', snapshot.exists)
-                if (snapshot.exists) {
-                    setAuth(true)
-                }
-            })
-            .catch((error) => {
-                return { error: `something went wrong: ${error}` }
-            })
-    }, [router])
-
     // useEffect(() => {
     //     async function check () {
     //         const auth = getFirebase().fire()
@@ -75,7 +53,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const result = await db
         .collection('Presentations')
-        .where("done", "!=", null)
         .get()
         .then(async (snapshot) => {
             const res = await snapshot.docs.map(

@@ -4,7 +4,7 @@ import { ProjectVote, CompactCard } from "@components/Vote";
 import { getFirebase } from "@helpers/firebase"
 import { useRouter } from 'next/router';
 
-const MAX_PROJECTS = 18;
+const MAX_PROJECTS = 22; // 18
 
 const parseTeams = (teams: RawVotingTeam[]): VotingTeam[] => {
     let projects: VotingTeam[] = []
@@ -98,18 +98,13 @@ const App: VoteComponent = ({ teams }) => {
 
     useEffect(() => {
         setLoad(true)
-    }, [])
+    }, [])	
 
     useEffect(() => {
         if (teams.length === 0) return;
         const _prevTeams = Array.from(prevTeams)
         const _afterTeams = Array.from(afterTeams)
         const _currTeam = currTeam
-
-        const savedSelected = localStorage.getItem('selected')
-        const savedAfter = localStorage.getItem('after')
-
-        console.log(teams)
 
         // if (savedSelected && savedAfter) {
         //     const _afterTeams = JSON.parse(savedAfter );
@@ -128,26 +123,20 @@ const App: VoteComponent = ({ teams }) => {
         setSelectedTeams(templates)
 
         let remTeams = Array.from(parseTeams(teams))
-        // set curr at the first team
-        console.log(remTeams)
-        setCurrTeam(remTeams[0])
-        console.log(remTeams)
-        remTeams.splice(0, 1)
-        console.log(remTeams)
-        setPrevTeams(remTeams)
-        console.log(remTeams)
+
+        // set curr at the last team
+        setCurrTeam(remTeams[remTeams.length-1])
+
+        setPrevTeams(remTeams.slice(0, remTeams.length-1))
+
+		console.log(currTeam, prevTeams)
         // }
     }, [teams])
-
-    // todo pls review logic
 
     useEffect(() => {
         // teams change
         if (load && prevTeams.length === 0 && teams.length === MAX_PROJECTS) setDone(true)
         else setDone(false)
-
-        setPrevTeams(prevTeams.filter(t => !t.template))
-        setAfterTeams(afterTeams.filter(t => !t.template))
 
         // localStorage.setItem('selected', JSON.stringify(selectedTeams));
         // localStorage.setItem('after', JSON.stringify(afterTeams));
@@ -172,11 +161,12 @@ const App: VoteComponent = ({ teams }) => {
         setAfterTeams(newAfterTeams)
 
         // change current to last before
-        setCurrTeam(_prevTeams[_prevTeams.length - 1])
+		console.log(_prevTeams)
+        setCurrTeam(_prevTeams[0])
 
         // pop out last before
         let newPrevTeams = _prevTeams
-        newPrevTeams.pop()
+        newPrevTeams.shift()
         setPrevTeams(newPrevTeams)
     }
 
@@ -190,7 +180,7 @@ const App: VoteComponent = ({ teams }) => {
 
         // push old current to before
         let newPrevTeams = _prevTeams
-        newPrevTeams.push(_currTeam)
+        newPrevTeams.unshift(_currTeam)
         setPrevTeams(newPrevTeams)
 
         // change current to first after
@@ -210,15 +200,15 @@ const App: VoteComponent = ({ teams }) => {
 
         // push old selected item to first after
         let newAfter = _afterTeams
-        newAfter.unshift(_selectedTeams[i])
+		if (!_selectedTeams[i].hasOwnProperty('template')) newAfter.unshift(_selectedTeams[i])
         setAfterTeams(newAfter)
 
         // change current team to last before
-        setCurrTeam(_prevTeams[_prevTeams.length - 1])
+        setCurrTeam(_prevTeams[0])
 
         // pop last element out of before
         let newPrevTeams = _prevTeams
-        newPrevTeams.pop()
+        newPrevTeams.shift()
         setPrevTeams(newPrevTeams)
 
         // change i'th selected team to current team
@@ -265,6 +255,18 @@ const App: VoteComponent = ({ teams }) => {
             .set({
                 vote: selectedTeams.map((t) => t.teamname)
             }, { merge: true })
+		
+		if (teams.length === 0) return;
+        let remTeams = Array.from(parseTeams(teams))
+
+        // set templates for selected
+        const templates = Array.from(Array(4).keys()).map(() => template)
+        setSelectedTeams(templates)
+        // set curr at the first team
+        setCurrTeam(remTeams[0])
+        remTeams.splice(0, 1)
+        setPrevTeams(remTeams)
+        setAfterTeams([])
     }
 
     return (
@@ -280,7 +282,7 @@ const App: VoteComponent = ({ teams }) => {
                 </> : <>
                     <div className="vote-container">
                         <div className="top">
-                            <p className="progress">{afterTeams.length + 1}/{teams.length}</p>
+                            <p className="progress">{afterTeams.length + 4 + 1}/{teams.length}</p>
                             <div className="helper-buttons">
                                 <button className="btn -purple" onClick={handleSkip}>Skip</button>
                                 <a className="btn" href="#choose-vote">Vote</a>
