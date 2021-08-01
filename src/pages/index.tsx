@@ -84,12 +84,13 @@ export const getStaticProps: GetStaticProps = async () => {
         })
         .catch((e) => console.error(e))
         
-      return res.name;
+      return res?.name;
     })
 
     team.projects = team.projects.slice(0, 1); // only get the first submission
 
     team.members = await Promise.all(team.members);
+    team.members = team.members.filter(x => x);
 
     delete team.admins;
     return team;

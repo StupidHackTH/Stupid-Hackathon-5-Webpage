@@ -9,7 +9,9 @@
 }
 
 .section-container#vote {
-    padding: 1rem 2%;
+    padding: 1rem 15%;
+
+    @include respond-to(medium) {padding: 1rem 7%;}
 }
 
 .section-container#vote .buttons {
@@ -34,7 +36,7 @@
 }
 
 .section-container#vote .vote-container > .top {
-    padding-bottom: 120px;
+    padding-top: 24px;
 
     > .gallery {
         display: block;
@@ -65,6 +67,7 @@
 
         > * {
             width: 50vw;
+            overflow: auto;
         }
 
         @include respond-to(small) {
@@ -72,23 +75,26 @@
         }
     }
 
-    .skip {
-        position: absolute;
-        left: 30%;
-    }
-
-    .back {
-        position: absolute;
-        right: 30%;
+    .helper-buttons {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 100%;
     }
 
     .progress {
         text-align: center;
+        position: relative;
     }
 }
 
 .section-container#vote .vote-container > .bottom {
-    
+    .rank-title {
+        font-size: 3rem;
+    }
+    .rank {
+        font-size: 2.5rem;
+    }
 }
 
 .section-container#submissions {

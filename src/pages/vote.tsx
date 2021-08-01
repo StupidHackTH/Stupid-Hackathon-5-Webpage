@@ -7,15 +7,44 @@ import initDB from '@helpers/db'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { getFirebase } from "@helpers/firebase"
 
 const Vote: HomeComponent = ({ teams }) => {
+    const [auth, setAuth] = useState(false)
+
     const router = useRouter();
 	const { id } = router.query;
+
+
+    useEffect(() => {
+        const firebase = getFirebase();
+        const db = firebase.firestore();
+        const ress = db
+            .collection('VoteSessions')
+            .doc(id)
+            .get()
+            .then(async (snapshot) => {
+                if (snapshot.exists) setAuth(true)
+            })
+            .catch((error) => {
+                return { error: `something went wrong: ${error}` }
+            })
+    }, [])
+
+    // useEffect(() => {
+    //     async function check () {
+    //         const auth = getFirebase().fire()
+    //         auth.onAuthStateChanged((a) => {
+    //             console.log(a)
+    //         })
+    //     }
+    //     check()
+    // }, [id])
 
     if (teams.length === 0)
         return <BlockLayout variant={4} header="Vote" id="vote"></BlockLayout>
 
-    return (
+    if (auth) {return (
         <>
             <Head>
                 <title>The 5th Stupid Hackathon Thailand</title>
@@ -24,7 +53,8 @@ const Vote: HomeComponent = ({ teams }) => {
                 <VoteApp teams={teams} />
             </BlockLayout>
         </>
-    )
+    ) }
+    else return <p>Unauthorized</p>
 }
 
 type TeamRes = {
@@ -36,8 +66,10 @@ type TeamRes = {
 
 export const getStaticProps: GetStaticProps = async () => {
     const db = initDB()
+
     const result = await db
         .collection('Presentations')
+        .where("done", "!=", null)
         .get()
         .then(async (snapshot) => {
             const res = await snapshot.docs.map(
@@ -64,6 +96,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
         team.project = team.submission
         delete team.submission
+
+        delete team.done
 		/*
         team.members = await team.members.map(async (m: string) => {
             const res = await db
