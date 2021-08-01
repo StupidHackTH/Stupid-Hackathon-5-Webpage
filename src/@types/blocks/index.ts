@@ -46,11 +46,16 @@ export type HomeComponent = FunctionComponent<TeamProps>
 
 // Project
 
-export type ProjectComponent = FunctionComponent<Project>
+type ProjectProps = Project & {
+	hidden?: boolean
+}
+
+export type ProjectComponent = FunctionComponent<ProjectProps>
 
 export type ProjectViewComponent = FunctionComponent<TeamProps>
 
 type VoteProps = {
 	teams: RawVotingTeam[]
 }
+
 export type VoteComponent = FunctionComponent<VoteProps>
