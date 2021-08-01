@@ -70,10 +70,11 @@ type CompactProps = {
 	teamname: string,
 	description: string,
 	color: string,
-	onClick: (e: FormEvent<Element>) => void
+	onClick: (e: FormEvent<Element>, i:number) => void,
+	index: number
 }
 
-export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, description, color, onClick }) => {
+export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, description, color, onClick, index }) => {
 	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
 	const type = getTextColor(color);
 
@@ -81,7 +82,7 @@ export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, d
 		<>
 			<div className={`vote-card -v${type} -compact`}
 				style={{backgroundColor: colorCode}} id={name}
-				onClick={(e: FormEvent) => onClick(e)}
+				onClick={(e: FormEvent) => onClick(e, index)}
 			>
 				<h2 className="name">{name}</h2>
 				<div className="team-info">
