@@ -30,6 +30,9 @@ const Project: ProjectComponent = ({ id, color, teamname, name, description, lin
 		video_id = link?.split('youtu.be')[1].split("").filter((c)=>c!=='/').join("")
 	}
 
+	// Special case for one project.
+	video_id = video_id.replace(/\]/, '')
+
 	const _link = _hidden ? `https://www.youtube.com/embed/${video_id?.replace(re, '█')}` : `https://www.youtube.com/embed/${video_id}`;
 	
 	return (

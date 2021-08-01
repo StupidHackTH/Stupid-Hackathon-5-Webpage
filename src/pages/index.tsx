@@ -91,6 +91,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
     team.projects = team.projects.filter((p, i) => !noLive.includes(team.id + '-' + i));
 
+    // Some teams put their primary project as 2nd.
+    // Luckily, there is only one such team.
+    team.projects.reverse();
+
     team.members = await Promise.all(team.members);
     team.members = team.members.filter(x => x);
 
