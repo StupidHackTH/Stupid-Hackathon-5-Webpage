@@ -9,6 +9,85 @@
 }
 
 .section-container#vote {
+    padding: 1rem 2%;
+}
+
+.section-container#vote .buttons {
+    display: flex;
+    justify-content: center;
+
+    > .btn:not(:first-child) {
+        margin-left: 1.5rem;
+    }
+}
+
+.section-container#vote .vote-container {
+    display: block;
+
+    .top {
+        display: block;
+    }
+
+    .bottom {
+        display: block;
+    }
+}
+
+.section-container#vote .vote-container > .top {
+    padding-bottom: 120px;
+
+    > .gallery {
+        display: block;
+    }
+
+    > .gallery > .current {
+        width: 50%;
+        position: absolute;
+        left: 50%;
+        z-index: 1;
+        transform: translateX(-50%);
+        
+        > .vote-card {
+            padding: 1.75rem 1.5rem;
+        }
+
+        @include respond-to(small) {
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    > .gallery > .aside {
+        display: flex;
+        justify-content: space-between;
+        filter: brightness(0.9);
+        pointer-events: none;
+
+        > * {
+            width: 50vw;
+        }
+
+        @include respond-to(small) {
+            display: none;
+        }
+    }
+
+    .skip {
+        position: absolute;
+        left: 30%;
+    }
+
+    .back {
+        position: absolute;
+        right: 30%;
+    }
+
+    .progress {
+        text-align: center;
+    }
+}
+
+.section-container#vote .vote-container > .bottom {
     
 }
 

@@ -216,7 +216,7 @@
     }
 }
 
-.project-card.-v1 {
+.project-card.-v1, .vote-card.-v1 {
     .name, .label {
         color: #111;
     }
@@ -235,7 +235,7 @@
     }
 }
 
-.project-card.-v2 {
+.project-card.-v2, .vote-card.-v2 {
     .name, .label {
         color: #eee;
     }
@@ -251,6 +251,75 @@
 
     .description {
         color: #dadada
+    }
+}
+
+.vote-card {
+    @include card;
+
+    margin-top: 2rem;
+    border: 2px solid #000;
+    font-size: 0.75rem;
+
+    .name {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+        overflow-wrap: break-word;
+    }
+
+    .description {
+        margin: 30px 0;
+    }
+
+    .team-info {
+        display: grid;
+        grid-template-areas: 'x y';
+        
+        > .teamname {
+            font-size: 0.75rem;
+            margin-right: 1rem;
+            grid-area: x;
+            overflow-wrap: anywhere;
+        }
+
+        > .members {
+            margin-left: auto;
+            grid-area: y;
+            overflow-wrap: anywhere;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        @include respond-to(small) {
+            grid-template-areas: 
+            'x'
+            'y';
+        }
+    }
+
+
+}
+
+.vote-card.-compact {
+    padding: 1rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    transition: all 100ms ease;
+
+    > .description {
+        margin: 0.5rem 0;
+    }
+
+    .teamname {
+        margin-bottom: 0.25rem;
+    }
+    
+    &:hover, &:active {
+        cursor: $cursor-click-url, pointer;
+        filter: brightness(0.9);
     }
 }
 
@@ -387,6 +456,7 @@
                     0 -4px 0 #000,
                     inset -6px -6px 0 #177013;
         background-color: $stupid-green;
+        cursor: $cursor-click-url, pointer;
         filter: brightness(.9);
     }
 
@@ -437,6 +507,27 @@
                     0 -4px 0 #000,
                     inset -6px -6px 0 #bb9900;
         background-color: #e7c21a;
+        filter: brightness(.9);
+    }
+}
+
+.btn.-red {
+    background-color: #e72b1a;
+
+    box-shadow: 4px 0 0 #000,
+                0 4px 0 #000,
+                -4px 0 0 #000,
+                0 -4px 0 #000,
+                inset -4px -4px 0 #bb0000;
+
+    &:hover,
+    &:focus {
+        box-shadow: 4px 0 0 #000,
+                    0 4px 0 #000,
+                    -4px 0 0 #000,
+                    0 -4px 0 #000,
+                    inset -6px -6px 0 #bb0000;
+        background-color: #e72b1a;
         filter: brightness(.9);
     }
 }
