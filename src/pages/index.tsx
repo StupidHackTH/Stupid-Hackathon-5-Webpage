@@ -3,6 +3,7 @@ import { Header, Registration, WhatIs, QA, Sponsor, ContactUs, Main, Agenda, Sub
 import { GetStaticProps } from "next";
 import initDB from "@helpers/db";
 import { HomeComponent, ProjectInfo } from "@types";
+import { noLive, staffTeams } from "@helpers/staticData";
 
 const Home: HomeComponent = ({ teams }) => {
   return (
@@ -44,6 +45,7 @@ type TeamRes = {
   color: string,
   members: string[],
   name: string,
+  id?: string
   submissions?: ProjectInfo[]
 }
 
@@ -53,7 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
     .where("submissions", "!=", null)
 		.get()
 		.then(async (snapshot) => {
-      const res = await snapshot.docs.map(async (team) => await team.data())
+      const res = await snapshot.docs.map(async (team) => ({... team.data(), id: team.id}))
 			return { ...res };
 		})
 		.catch((error) => {
@@ -87,7 +89,7 @@ export const getStaticProps: GetStaticProps = async () => {
       return res?.name;
     })
 
-    team.projects = team.projects.slice(0, 1); // only get the first submission
+    team.projects = team.projects.filter((p, i) => !noLive.includes(team.id + '-' + i));
 
     team.members = await Promise.all(team.members);
     team.members = team.members.filter(x => x);
@@ -99,7 +101,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const ret = await Promise.all(teams)
 
 	return {
-		props: { teams: await ret },
+		props: { teams: [...await ret, ...staffTeams] },
 		revalidate: 1 * 5
 	}
 };

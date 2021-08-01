@@ -12,7 +12,7 @@ function getTextColor(color: string){
 	}
 }
 
-const Project: ProjectComponent = ({ color, teamname, name, description, link, members, hidden }) => {
+const Project: ProjectComponent = ({ id, color, teamname, name, description, link, members, hidden }) => {
 	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
 
 	const type = getTextColor(color);
@@ -34,7 +34,7 @@ const Project: ProjectComponent = ({ color, teamname, name, description, link, m
 	
 	return (
 		<>
-			<div className={`project-card -v${type}`} style={{backgroundColor: colorCode}} id={_name}>
+			<div id={id} className={`project-card -v${type}`} style={{backgroundColor: colorCode}}>
 				<h2 className="name">{_name}</h2>
 				<div className="team-info">
 					<h3 className="teamname"><span className="label">Team Name</span>{teamname}</h3>
