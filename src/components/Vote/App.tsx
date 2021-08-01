@@ -36,7 +36,7 @@ const toCard = (teams: VotingTeam[]) => {
 }
 
 const toCompactCard = (teams: VotingTeam[], onClick: (e: FormEvent<Element>) => void) => {
-    return teams.map((t) => (
+    return teams.map((t, i) => (
         <CompactCard
             key={t.name}
             name={t.name}
@@ -44,6 +44,7 @@ const toCompactCard = (teams: VotingTeam[], onClick: (e: FormEvent<Element>) => 
             description={t.description}
             teamname={t.teamname}
             onClick={onClick}
+            index={i}
         />
     ))
 }
@@ -92,7 +93,7 @@ const App: VoteComponent = ({ teams }) => {
             </> : <>
                 <div className="vote-container">
                     <div className="top">
-                        <p className="progress">{afterTeams.length}/{teams.length}</p>
+                        <p className="progress">{afterTeams.length+1}/{teams.length-4}</p>
                         <div className="gallery">
                             <div className="current">
                                 {currTeam ? toCard(currTeam): blankPresentation()}
