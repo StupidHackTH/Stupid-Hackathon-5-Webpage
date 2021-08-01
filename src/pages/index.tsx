@@ -74,7 +74,7 @@ export const getStaticProps: GetStaticProps = async () => {
   teams = await teams.map(async (t: TeamRes) => {
     const team = await t;
 
-    team.projects = team.submissions;
+    team.projects = team.submissions.map((s, i) => ({ ...s, id: team.id + '-' + i }));
     delete team.submissions;
     team.members = await team.members.map(async (m: string) => {
       const res = await db.collection('Users')

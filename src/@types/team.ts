@@ -12,6 +12,7 @@ export type ProjectInfo = {
 	name: string,
 	description: string,
 	link: string
+	id: string
 }
 
 export type Team = {

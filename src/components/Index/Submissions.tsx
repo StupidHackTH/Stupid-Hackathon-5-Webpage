@@ -23,7 +23,7 @@ const Submissions: ProjectViewComponent = ({ teams, variant }) => {
                 description: p.description,
                 link: p.link,
                 members: t.members,
-                id: t.id + '-' + i,
+                id: p.id,
             })
         })
     })
