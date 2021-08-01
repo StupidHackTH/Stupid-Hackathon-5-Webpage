@@ -7,35 +7,50 @@ import initDB from '@helpers/db'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { getFirebase } from "@helpers/firebase"
 
 const Vote: HomeComponent = ({ teams }) => {
-    const router = useRouter();
-	const { id } = router.query;
+    const [auth, setAuth] = useState(true)
+    // const [id,setId] = useState(null)
+
+    // useEffect(() => {
+    //     async function check () {
+    //         const auth = getFirebase().fire()
+    //         auth.onAuthStateChanged((a) => {
+    //             console.log(a)
+    //         })
+    //     }
+    //     check()
+    // }, [id])
 
     if (teams.length === 0)
         return <BlockLayout variant={4} header="Vote" id="vote"></BlockLayout>
 
-    return (
-        <>
-            <Head>
-                <title>The 5th Stupid Hackathon Thailand</title>
-            </Head>
-            <BlockLayout variant={4} header="Vote" id="vote">
-                <VoteApp teams={teams} />
-            </BlockLayout>
-        </>
-    )
+    if (auth) {
+        return (
+            <>
+                <Head>
+                    <title>The 5th Stupid Hackathon Thailand</title>
+                </Head>
+                <BlockLayout variant={4} header="Vote" id="vote">
+                    <VoteApp teams={teams} />
+                </BlockLayout>
+            </>
+        )
+    }
+    else return <p>Unauthorized</p>
 }
 
 type TeamRes = {
-	color: string,
-	members: string[],
-	name: string,
-	submissions?: ProjectInfo[]
+    color: string,
+    members: string[],
+    name: string,
+    submissions?: ProjectInfo[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
     const db = initDB()
+
     const result = await db
         .collection('Presentations')
         .get()
@@ -58,13 +73,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
     let teams = await Object.values(result)
 
-	
+
     teams = await teams.map(async (t: TeamRes) => {
-		const team = await t;
+        const team = await t;
 
         team.project = team.submission
         delete team.submission
-		/*
+
+        delete team.done
+        /*
         team.members = await team.members.map(async (m: string) => {
             const res = await db
                 .collection('Users')
@@ -80,11 +97,11 @@ export const getStaticProps: GetStaticProps = async () => {
         })
 
         team.members = await Promise.all(team.members)
-		*/
+        */
 
         return team
     })
-	
+
     const ret = await Promise.all(teams)
 
     return {

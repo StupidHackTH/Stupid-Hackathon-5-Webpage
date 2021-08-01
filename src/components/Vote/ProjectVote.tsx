@@ -6,7 +6,7 @@ function getTextColor(color: string){
 
 	const [a, b, c] = colorCode.matchAll(/[0-9a-fA-F]{2}/ig);
   
-	if ((parseInt(a,16) + parseInt(b,16) + parseInt(c,16))/3 > 127) {
+	if (0.3*parseInt(a,16) + 0.6*parseInt(b,16) + 0.1*parseInt(c,16) > 127) {
 	  return 1
 	} else {
 	  return 2
@@ -15,9 +15,10 @@ function getTextColor(color: string){
 
 type VoteViewProps = ProjectType & {
 	hidden?: boolean,
+	index?: number
 }
 
-const ProjectVote: FunctionComponent<VoteViewProps> = ({ color, teamname, name, description, link, members, hidden }) => {
+const ProjectVote: FunctionComponent<VoteViewProps> = ({ color, teamname, name, description, link, members, hidden, index }) => {
 	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
 	const type = getTextColor(color);
 
@@ -25,7 +26,7 @@ const ProjectVote: FunctionComponent<VoteViewProps> = ({ color, teamname, name, 
 
 	const re = /\S/g;
 	const _name = _hidden ? name.replace(re, '█') : name;
-	const _description = _hidden ? description.replace(re, '█') : description;	
+	const _description = _hidden ? description.replace(re, '█') : description;
 
 	let video_id;
 	if (link?.includes('watch?v=')) {
@@ -38,6 +39,7 @@ const ProjectVote: FunctionComponent<VoteViewProps> = ({ color, teamname, name, 
 	
 	return (
 		<>
+			{ (index || index === 0) ? <h2 className="rank">{index}.</h2> : <></> }
 			<div className={`vote-card -v${type}`} style={{backgroundColor: colorCode}} id={_name}>
 				<h2 className="name">{_name}</h2>
 				<div className="team-info">
@@ -71,15 +73,20 @@ type CompactProps = {
 	description: string,
 	color: string,
 	onClick: (e: FormEvent<Element>, i:number) => void,
-	index: number
+	index: number,
+    template?: boolean
 }
 
-export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, description, color, onClick, index }) => {
+export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, description, color, onClick, index, template }) => {
 	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
 	const type = getTextColor(color);
 
+	const re = /\S/g;
+	const _description = template ? description.replace(re, '█') : description;
+
 	return (
 		<>
+			<h2 className="rank">{index}.</h2>
 			<div className={`vote-card -v${type} -compact`}
 				style={{backgroundColor: colorCode}} id={name}
 				onClick={(e: FormEvent) => onClick(e, index)}
@@ -89,7 +96,7 @@ export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, d
 					<h3 className="teamname">by {teamname}</h3>
 				</div>
 				<hr className="separator" />
-				<p className="description">{description}</p>
+				<p className="description">{_description}</p>
 			</div>
 		</>
 	);
