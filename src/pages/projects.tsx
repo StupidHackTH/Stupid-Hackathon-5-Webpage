@@ -15,7 +15,6 @@ const Projects: HomeComponent = ({ teams }) => {
     if (teams.length === 0) return <BlockLayout variant={1} header="Projects" id="projects"></BlockLayout>
     let projects: ProjectType[] = []
 
-
     teams.forEach((t) => {
         if (!t.projects) return
         t.projects.forEach((p) => {

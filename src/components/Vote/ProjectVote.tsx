@@ -1,20 +1,24 @@
-import { ProjectComponent } from "@types";
+import { Project as ProjectType } from "@types";
+import { FormEvent, FunctionComponent } from "react";
 
 function getTextColor(color: string){
 	const colorCode = color.length === 3 ? color.split("").map((e)=>e+e).join("") : color
 
 	const [a, b, c] = colorCode.matchAll(/[0-9a-fA-F]{2}/ig);
   
-	if (0.3*parseInt(a,16) + 0.6*parseInt(b,16) + 0.1*parseInt(c,16) > 127) {
-	  return 1 // light
+	if ((parseInt(a,16) + parseInt(b,16) + parseInt(c,16))/3 > 127) {
+	  return 1
 	} else {
-	  return 2 // dark
+	  return 2
 	}
 }
 
-const Project: ProjectComponent = ({ color, teamname, name, description, link, members, hidden }) => {
-	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
+type VoteViewProps = ProjectType & {
+	hidden?: boolean,
+}
 
+const ProjectVote: FunctionComponent<VoteViewProps> = ({ color, teamname, name, description, link, members, hidden }) => {
+	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
 	const type = getTextColor(color);
 
 	const _hidden = hidden ?? true;
@@ -34,7 +38,7 @@ const Project: ProjectComponent = ({ color, teamname, name, description, link, m
 	
 	return (
 		<>
-			<div className={`project-card -v${type}`} style={{backgroundColor: colorCode}} id={_name}>
+			<div className={`vote-card -v${type}`} style={{backgroundColor: colorCode}} id={_name}>
 				<h2 className="name">{_name}</h2>
 				<div className="team-info">
 					<h3 className="teamname"><span className="label">Team Name</span>{teamname}</h3>
@@ -61,4 +65,33 @@ const Project: ProjectComponent = ({ color, teamname, name, description, link, m
 	);
 }
 
-export default Project;
+type CompactProps = {
+	name: string,
+	teamname: string,
+	description: string,
+	color: string,
+	onClick: (e: FormEvent<Element>) => void
+}
+
+export const CompactCard: FunctionComponent<CompactProps> = ({ name, teamname, description, color, onClick }) => {
+	const colorCode = (color.length === 6 || color.length === 3) ? `#${color}` : color;
+	const type = getTextColor(color);
+
+	return (
+		<>
+			<div className={`vote-card -v${type} -compact`}
+				style={{backgroundColor: colorCode}} id={name}
+				onClick={(e: FormEvent) => onClick(e)}
+			>
+				<h2 className="name">{name}</h2>
+				<div className="team-info">
+					<h3 className="teamname">by {teamname}</h3>
+				</div>
+				<hr className="separator" />
+				<p className="description">{description}</p>
+			</div>
+		</>
+	);
+}
+
+export default ProjectVote;
