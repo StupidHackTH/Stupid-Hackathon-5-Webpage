@@ -8,9 +8,19 @@
     }
 }
 
+.section-container#vote {
+    
+}
+
 .section-container#submissions {
     @include respond-to(extralarge) {
         padding: 5% 25%;
+    }
+}
+
+.section-container#vote {
+    .title {
+        text-align: center;
     }
 }
 
