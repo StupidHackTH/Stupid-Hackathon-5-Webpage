@@ -10,26 +10,30 @@ import { useEffect, useState } from 'react'
 import { getFirebase } from "@helpers/firebase"
 
 const Vote: HomeComponent = ({ teams }) => {
-    const [auth, setAuth] = useState(false)
+    const [auth, setAuth] = useState(true)
+    // const [id,setId] = useState(null)
 
     const router = useRouter();
-	const { id } = router.query;
-
 
     useEffect(() => {
+        const { id } = router.query;
         const firebase = getFirebase();
         const db = firebase.firestore();
+        console.log(id, db)
         const ress = db
             .collection('VoteSessions')
             .doc(id)
             .get()
-            .then(async (snapshot) => {
-                if (snapshot.exists) setAuth(true)
+            .then((snapshot) => {
+                console.log('hi', snapshot.exists)
+                if (snapshot.exists) {
+                    setAuth(true)
+                }
             })
             .catch((error) => {
                 return { error: `something went wrong: ${error}` }
             })
-    }, [])
+    }, [router])
 
     // useEffect(() => {
     //     async function check () {
@@ -44,24 +48,26 @@ const Vote: HomeComponent = ({ teams }) => {
     if (teams.length === 0)
         return <BlockLayout variant={4} header="Vote" id="vote"></BlockLayout>
 
-    if (auth) {return (
-        <>
-            <Head>
-                <title>The 5th Stupid Hackathon Thailand</title>
-            </Head>
-            <BlockLayout variant={4} header="Vote" id="vote">
-                <VoteApp teams={teams} />
-            </BlockLayout>
-        </>
-    ) }
+    if (auth) {
+        return (
+            <>
+                <Head>
+                    <title>The 5th Stupid Hackathon Thailand</title>
+                </Head>
+                <BlockLayout variant={4} header="Vote" id="vote">
+                    <VoteApp teams={teams} />
+                </BlockLayout>
+            </>
+        )
+    }
     else return <p>Unauthorized</p>
 }
 
 type TeamRes = {
-	color: string,
-	members: string[],
-	name: string,
-	submissions?: ProjectInfo[]
+    color: string,
+    members: string[],
+    name: string,
+    submissions?: ProjectInfo[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -90,15 +96,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
     let teams = await Object.values(result)
 
-	
+
     teams = await teams.map(async (t: TeamRes) => {
-		const team = await t;
+        const team = await t;
 
         team.project = team.submission
         delete team.submission
 
         delete team.done
-		/*
+        /*
         team.members = await team.members.map(async (m: string) => {
             const res = await db
                 .collection('Users')
@@ -114,11 +120,11 @@ export const getStaticProps: GetStaticProps = async () => {
         })
 
         team.members = await Promise.all(team.members)
-		*/
+        */
 
         return team
     })
-	
+
     const ret = await Promise.all(teams)
 
     return {

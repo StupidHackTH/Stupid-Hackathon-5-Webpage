@@ -59,7 +59,7 @@ type VotingTeamPlus = VotingTeam & {
     template?: boolean
 }
 
-const toCompactCard = (teams: VotingTeamPlus[], onClick: (e: FormEvent<Element>, i:number) => void) => {
+const toCompactCard = (teams: VotingTeamPlus[], onClick: (e: FormEvent<Element>, i: number) => void) => {
     return teams.map((t, i) => (
         <CompactCard
             key={t.name}
@@ -87,12 +87,12 @@ const App: VoteComponent = ({ teams }) => {
     }
 
     const router = useRouter();
-	const { id } = router.query;
+    const { id } = router.query;
 
-	const [currTeam, setCurrTeam] = useState<VotingTeam>(template);
-	const [prevTeams, setPrevTeams] = useState<VotingTeam[]>([]);
-	const [afterTeams, setAfterTeams] = useState<VotingTeam[]>([]);
-	const [selectedTeams, setSelectedTeams] = useState<VotingTeamPlus[]>([]);
+    const [currTeam, setCurrTeam] = useState<VotingTeam>(template);
+    const [prevTeams, setPrevTeams] = useState<VotingTeam[]>([]);
+    const [afterTeams, setAfterTeams] = useState<VotingTeam[]>([]);
+    const [selectedTeams, setSelectedTeams] = useState<VotingTeamPlus[]>([]);
     const [done, setDone] = useState(false);
     const [load, setLoad] = useState(false);
 
@@ -100,38 +100,44 @@ const App: VoteComponent = ({ teams }) => {
         setLoad(true)
     }, [])
 
-	useEffect(() => {
+    useEffect(() => {
         if (teams.length === 0) return;
         const _prevTeams = Array.from(prevTeams)
         const _afterTeams = Array.from(afterTeams)
         const _currTeam = currTeam
-        
+
         const savedSelected = localStorage.getItem('selected')
         const savedAfter = localStorage.getItem('after')
-        
-        if (savedSelected && savedAfter) {
-            const _afterTeams = JSON.parse(savedAfter );
-            const _selectedTeams = JSON.parse(savedSelected);
-            // set things we already know
-            setSelectedTeams(_selectedTeams)
-            setAfterTeams(_afterTeams)
 
-            // all teams that aint from the ones above
-            const rem = parseTeams(teams).filter((t) => !_selectedTeams.includes(t) || !_afterTeams.includes(t))
-            setPrevTeams(rem.slice(0, rem.length-1))
-            setCurrTeam(rem[rem.length])
-        } else {
-            // set templates for selected
-            const templates = Array.from(Array(4).keys()).map(()=>template)
-            setSelectedTeams(templates)
+        console.log(teams)
 
-            let remTeams = Array.from(parseTeams(teams))
-            // set curr at the first team
-            setCurrTeam(remTeams[0])
-            remTeams.splice(0,1)
-            setPrevTeams(remTeams)
-        }
-	}, [teams])
+        // if (savedSelected && savedAfter) {
+        //     const _afterTeams = JSON.parse(savedAfter );
+        //     const _selectedTeams = JSON.parse(savedSelected);
+        //     // set things we already know
+        //     setSelectedTeams(_selectedTeams)
+        //     setAfterTeams(_afterTeams)
+
+        //     // all teams that aint from the ones above
+        //     const rem = parseTeams(teams).filter((t) => !_selectedTeams.includes(t) || !_afterTeams.includes(t))
+        //     setPrevTeams(rem.slice(0, rem.length-1))
+        //     setCurrTeam(rem[rem.length])
+        // } else {
+        // set templates for selected
+        const templates = Array.from(Array(4).keys()).map(() => template)
+        setSelectedTeams(templates)
+
+        let remTeams = Array.from(parseTeams(teams))
+        // set curr at the first team
+        console.log(remTeams)
+        setCurrTeam(remTeams[0])
+        console.log(remTeams)
+        remTeams.splice(0, 1)
+        console.log(remTeams)
+        setPrevTeams(remTeams)
+        console.log(remTeams)
+        // }
+    }, [teams])
 
     // todo pls review logic
 
@@ -140,10 +146,13 @@ const App: VoteComponent = ({ teams }) => {
         if (load && prevTeams.length === 0 && teams.length === MAX_PROJECTS) setDone(true)
         else setDone(false)
 
-        localStorage.setItem('selected', JSON.stringify(selectedTeams));
-        localStorage.setItem('after', JSON.stringify(afterTeams));
-         
-	}, [afterTeams])
+        setPrevTeams(prevTeams.filter(t => !t.template))
+        setAfterTeams(afterTeams.filter(t => !t.template))
+
+        // localStorage.setItem('selected', JSON.stringify(selectedTeams));
+        // localStorage.setItem('after', JSON.stringify(afterTeams));
+
+    }, [afterTeams])
 
     if (teams.length === 0) return <></>;
 
@@ -163,7 +172,7 @@ const App: VoteComponent = ({ teams }) => {
         setAfterTeams(newAfterTeams)
 
         // change current to last before
-        setCurrTeam(_prevTeams[_prevTeams.length-1])
+        setCurrTeam(_prevTeams[_prevTeams.length - 1])
 
         // pop out last before
         let newPrevTeams = _prevTeams
@@ -178,7 +187,7 @@ const App: VoteComponent = ({ teams }) => {
         const _prevTeams = Array.from(prevTeams)
         const _afterTeams = Array.from(afterTeams)
         const _currTeam = currTeam
-        
+
         // push old current to before
         let newPrevTeams = _prevTeams
         newPrevTeams.push(_currTeam)
@@ -205,7 +214,7 @@ const App: VoteComponent = ({ teams }) => {
         setAfterTeams(newAfter)
 
         // change current team to last before
-        setCurrTeam(_prevTeams[_prevTeams.length-1])
+        setCurrTeam(_prevTeams[_prevTeams.length - 1])
 
         // pop last element out of before
         let newPrevTeams = _prevTeams
@@ -224,11 +233,11 @@ const App: VoteComponent = ({ teams }) => {
         let remTeams = Array.from(parseTeams(teams))
 
         // set templates for selected
-        const templates = Array.from(Array(4).keys()).map(()=>template)
+        const templates = Array.from(Array(4).keys()).map(() => template)
         setSelectedTeams(templates)
         // set curr at the first team
         setCurrTeam(remTeams[0])
-        remTeams.splice(0,1)
+        remTeams.splice(0, 1)
         setPrevTeams(remTeams)
         setAfterTeams([])
 
@@ -255,50 +264,50 @@ const App: VoteComponent = ({ teams }) => {
             .doc(_id)
             .set({
                 vote: selectedTeams.map((t) => t.teamname)
-            }, {merge: true})
+            }, { merge: true })
     }
 
     return (
-        <>            
-            { done ? 
-            <>
-                <h2 id="choose-vote" className="rank-title">Confirm your Votes</h2>
-                <div className="selected">{selectedTeams ? toIndexCard(selectedTeams) : blankPresentation()}</div>
-                <div className="buttons">
-                    <button className="btn -red" onClick={handleReset}>Reset</button>
-                    <button className="btn -gold" onClick={handleSubmit}>Submit</button>
-                </div>
-            </> : <>
-                <div className="vote-container">
-                    <div className="top">
-                    <p className="progress">{afterTeams.length+1}/{teams.length}</p>
-                        <div className="helper-buttons">
-                            <button className="btn -purple" onClick={handleSkip}>Skip</button>
-                            <a className="btn" href="#choose-vote">Vote</a>
-                            <button className="btn -purple" onClick={handleBack}>Undo</button>
-                        </div>
-                        <div className="gallery">
-                            <div className="current">
-                                {currTeam ? toCard([currTeam]): blankPresentation()}
+        <>
+            {done ?
+                <>
+                    <h2 id="choose-vote" className="rank-title">Confirm your Votes</h2>
+                    <div className="selected">{selectedTeams ? toIndexCard(selectedTeams) : blankPresentation()}</div>
+                    <div className="buttons">
+                        <button className="btn -red" onClick={handleReset}>Reset</button>
+                        <button className="btn -gold" onClick={handleSubmit}>Submit</button>
+                    </div>
+                </> : <>
+                    <div className="vote-container">
+                        <div className="top">
+                            <p className="progress">{afterTeams.length + 1}/{teams.length}</p>
+                            <div className="helper-buttons">
+                                <button className="btn -purple" onClick={handleSkip}>Skip</button>
+                                <a className="btn" href="#choose-vote">Vote</a>
+                                <button className="btn -purple" onClick={handleBack}>Undo</button>
                             </div>
-                            <div className="aside">
-                                <div className="previous">
-                                    {prevTeams.length!==0 ? toCard(prevTeams)[0] : <></>}
+                            <div className="gallery">
+                                <div className="current">
+                                    {currTeam ? toCard([currTeam]) : blankPresentation()}
                                 </div>
-                                <div className="after">
-                                    {afterTeams.length!==0 ? toCard(afterTeams)[0] : <></>}
+                                <div className="aside">
+                                    <div className="previous">
+                                        {prevTeams.length !== 0 ? toCard(prevTeams)[0] : <></>}
+                                    </div>
+                                    <div className="after">
+                                        {afterTeams.length !== 0 ? toCard(afterTeams)[0] : <></>}
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="bottom">
+                            <div className="selected">
+                                <h2 id="choose-vote" className="rank-title">Selections</h2>
+                                {selectedTeams.length !== 0 ? toCompactCard(selectedTeams, handleSelect) : blankPresentation()}
                             </div>
                         </div>
                     </div>
-                    <div className="bottom">
-                        <div className="selected">
-                            <h2 id="choose-vote" className="rank-title">Selections</h2>
-                            {selectedTeams.length!==0 ? toCompactCard(selectedTeams, handleSelect) : blankPresentation()}
-                        </div>
-                    </div>
-                </div>
-            </>
+                </>
             }
         </>
     )
