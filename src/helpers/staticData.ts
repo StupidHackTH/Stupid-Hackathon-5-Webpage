@@ -4,7 +4,8 @@ export const noLive = [
     'Team16-0',
     'Team18-0',
     'Team11-0', // duplicate video
-    'Team08-1' // duplicate entry
+    'Team08-1', // duplicate entry
+    'Team22-1' // duplicate entry
 ]
 
 export const staffTeams: Team[] = [
