@@ -1,8 +1,8 @@
 import { FunctionComponent } from "react";
-import { Team, Project } from "../team";
+import { Team, Project, RawVotingTeam } from "../team";
 
 type SectionProps = {
-	variant: number
+	variant?: number
 }
 
 export type SectionComponent = FunctionComponent<SectionProps>
@@ -49,3 +49,8 @@ export type HomeComponent = FunctionComponent<TeamProps>
 export type ProjectComponent = FunctionComponent<Project>
 
 export type ProjectViewComponent = FunctionComponent<TeamProps>
+
+type VoteProps = {
+	teams: RawVotingTeam[]
+}
+export type VoteComponent = FunctionComponent<VoteProps>

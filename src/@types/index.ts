@@ -6,11 +6,14 @@ export type {
 	HomeComponent,
 	ProjectViewComponent,
 	ProjectComponent,
-	SectionComponent
+	SectionComponent,
+	VoteComponent
 } from './blocks'
 
 export type {
 	Team,
+	VotingTeam,
 	Project,
-	ProjectInfo
+	ProjectInfo,
+	RawVotingTeam
 } from './team'

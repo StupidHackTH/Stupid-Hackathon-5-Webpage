@@ -15,7 +15,8 @@ module.exports = {
     env: {
         PROJECT_ID: process.env.PROJECT_ID,
         PRIVATE_ID: process.env.PRIVATE_ID,
-        CLIENT_EMAIL: process.env.CLIENT_EMAIL
+        CLIENT_EMAIL: process.env.CLIENT_EMAIL,
+        HIDDEN: process.env.HIDDEN
     },
     typescript: {
         // !! WARN !!

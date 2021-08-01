@@ -56,6 +56,10 @@
     &.-v3 {
         background-color: #39ff14dd;
     }
+
+    &.-v4 {
+        background-color: #deeaeedd;
+    }
 }
 
 .section-block .title-container {
@@ -189,12 +193,14 @@
         > .teamname {
             font-size: 1rem;
             margin-right: 1rem;
-            grid-area: 'x';
+            grid-area: x;
+            overflow-wrap: anywhere;
         }
 
         > .members {
             margin-left: auto;
-            grid-area: 'y';
+            grid-area: y;
+            overflow-wrap: anywhere;
         }
 
         .label {
@@ -410,6 +416,27 @@
                     0 -4px 0 #000,
                     inset -6px -6px 0 #70136b;
         background-color: $stupid-violet;
+        filter: brightness(.9);
+    }
+}
+
+.btn.-gold {
+    background-color: #e7c21a;
+
+    box-shadow: 4px 0 0 #000,
+                0 4px 0 #000,
+                -4px 0 0 #000,
+                0 -4px 0 #000,
+                inset -4px -4px 0 #bb9900;
+
+    &:hover,
+    &:focus {
+        box-shadow: 4px 0 0 #000,
+                    0 4px 0 #000,
+                    -4px 0 0 #000,
+                    0 -4px 0 #000,
+                    inset -6px -6px 0 #bb9900;
+        background-color: #e7c21a;
         filter: brightness(.9);
     }
 }

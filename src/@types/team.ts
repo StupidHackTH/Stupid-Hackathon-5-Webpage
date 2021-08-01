@@ -3,7 +3,7 @@ export type Project = {
 	teamname: string,
 	name: string,
 	description: string,
-	link: string,
+	link?: string,
 	members: string[]
 }
 
@@ -18,4 +18,17 @@ export type Team = {
 	members: string[],
 	name: string,
 	projects?: ProjectInfo[]
+}
+
+export type VotingTeam = ProjectInfo & {
+    color: string,
+	members: string[],
+	teamname: string
+}
+
+export type RawVotingTeam = {
+    color: string,
+	members: string[],
+	teamname: string,
+	project: ProjectInfo
 }

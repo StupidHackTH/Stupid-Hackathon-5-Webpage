@@ -44,7 +44,7 @@ type TeamRes = {
   color: string,
   members: string[],
   name: string,
-  projects?: ProjectInfo[]
+  submissions?: ProjectInfo[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
