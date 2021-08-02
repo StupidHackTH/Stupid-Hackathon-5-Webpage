@@ -12,7 +12,14 @@ import initDB from '@helpers/db'
 import { GetStaticProps } from 'next'
 
 const Projects: HomeComponent = ({ teams }) => {
-    if (teams.length === 0) return <BlockLayout variant={1} header="Projects" id="projects"></BlockLayout>
+    if (teams.length === 0)
+        return (
+            <BlockLayout
+                variant={1}
+                header="Projects"
+                id="projects"
+            ></BlockLayout>
+        )
     let projects: ProjectType[] = []
 
     teams.forEach((t) => {
@@ -38,6 +45,7 @@ const Projects: HomeComponent = ({ teams }) => {
             description={t.description}
             teamname={t.teamname}
             link={t.link}
+            hidden={false}
         />
     ))
 

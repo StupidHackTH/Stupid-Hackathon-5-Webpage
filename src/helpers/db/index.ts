@@ -6,9 +6,9 @@ const initDB = () => {
 	try {
 		return admin.firestore();
 	} catch {
-		admin.initializeApp({
+		admin.initializeApp(!process.env.GOOGLE_APPLICATION_CREDENTIALS ? {
 			credential: admin.credential.cert(cert),
-		});
+		} : {});
 		return admin.firestore();
 	}
 };
