@@ -245,6 +245,7 @@ const App: VoteComponent = ({ teams }) => {
         if (!complete) return alert("Please select your votes for every ranking.")
 
         // submit here
+        /*
         const firebase = getFirebase()
         const db = firebase.firestore()
 
@@ -267,6 +268,7 @@ const App: VoteComponent = ({ teams }) => {
         remTeams.splice(0, 1)
         setPrevTeams(remTeams)
         setAfterTeams([])
+        */
     }
 
     return (
