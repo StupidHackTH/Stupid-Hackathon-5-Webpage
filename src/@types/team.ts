@@ -5,12 +5,14 @@ export type Project = {
 	description: string,
 	link?: string,
 	members: string[]
+	id?: string
 }
 
 export type ProjectInfo = {
 	name: string,
 	description: string,
 	link: string
+	id: string
 }
 
 export type Team = {
@@ -18,6 +20,7 @@ export type Team = {
 	members: string[],
 	name: string,
 	projects?: ProjectInfo[]
+	id?: string
 }
 
 export type VotingTeam = ProjectInfo & {

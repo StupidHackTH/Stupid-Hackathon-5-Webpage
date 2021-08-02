@@ -15,20 +15,22 @@ const Submissions: ProjectViewComponent = ({ teams, variant }) => {
 
     teams.forEach((t) => {
         if (!t.projects) return
-        t.projects.forEach((p) => {
+        t.projects.forEach((p, i) => {
             projects.push({
                 color: t.color,
                 teamname: t.name,
                 name: p.name,
                 description: p.description,
                 link: p.link,
-                members: t.members
+                members: t.members,
+                id: p.id,
             })
         })
     })
 
     const submissions = projects.map((t) => (
         <Project
+            id={t.id}
             members={t.members}
             key={t.name}
             name={t.name}
@@ -36,6 +38,7 @@ const Submissions: ProjectViewComponent = ({ teams, variant }) => {
             description={t.description}
             teamname={t.teamname}
             link={t.link}
+            hidden={false}
         />
     ))
 
