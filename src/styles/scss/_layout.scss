@@ -8,6 +8,24 @@
     }
 }
 
+.section-container#awards {
+    .list-container {
+        line-height: 2.5rem;
+        list-style: '>  ';
+        padding-inline-start: 1rem;
+        margin-inline-end: 1rem;
+        font-family: "FA Sysfont C", KrungThep, sans-serif;
+    }
+
+    .list > a {
+        color: #c60000;
+
+        &:hover, &:active {
+            color: #791010;
+        }
+    }
+}
+
 .section-container#vote {
     padding: 1rem 15%;
 
