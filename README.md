@@ -4,7 +4,7 @@
 
 ## Notice
 
-Since the event's now over, we've hardcoded everything and removed all firebase stuff out of the website. Despite this, we've still kept everything in the main branch and do the hardcoded stuff in a different branch (`/harcode`) instead.
+Since the event's now over, we've hardcoded everything and removed all firebase stuff out of the website. Despite this, we've still kept everything in the main branch and do the hardcoded stuff in a different branch (`/hardcode`) instead.
 
 ## Technology
 
