@@ -10,9 +10,10 @@ import Head from 'next/head'
 import Link from 'next/link'
 import initDB from '@helpers/db'
 import { GetStaticProps } from 'next'
+import Presentations from "@helpers/presentations";
 
-const Projects: HomeComponent = ({ teams }) => {
-    if (teams.length === 0)
+const Projects: HomeComponent = ({ submissions }) => {
+    if (submissions.length === 0)
         return (
             <BlockLayout
                 variant={1}
@@ -20,23 +21,8 @@ const Projects: HomeComponent = ({ teams }) => {
                 id="projects"
             ></BlockLayout>
         )
-    let projects: ProjectType[] = []
 
-    teams.forEach((t) => {
-        if (!t.projects) return
-        t.projects.forEach((p) => {
-            projects.push({
-                color: t.color,
-                teamname: t.name,
-                name: p.name,
-                description: p.description,
-                link: p.link,
-                members: t.members
-            })
-        })
-    })
-
-    const submissions = projects.map((t) => (
+    const _submissions = submissions.map((t) => (
         <Project
             members={t.members}
             key={t.name}
@@ -45,7 +31,7 @@ const Projects: HomeComponent = ({ teams }) => {
             description={t.description}
             teamname={t.teamname}
             link={t.link}
-            hidden={false}
+            hidden={t.hidden}
         />
     ))
 
@@ -60,7 +46,7 @@ const Projects: HomeComponent = ({ teams }) => {
                         <a className="btn -purple">back to main</a>
                     </Link>
                 </div>
-                {submissions}
+                {_submissions}
             </BlockLayout>
         </>
     )
@@ -74,61 +60,83 @@ type TeamRes = {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const db = initDB()
-    const result = await db
-        .collection('Teams')
-        .where('submissions', '!=', null)
-        .get()
-        .then(async (snapshot) => {
-            const res = await snapshot.docs.map(
-                async (team) => await team.data()
-            )
-            return { ...res }
+    let ret: ProjectType[] = []
+    Presentations.forEach((t) => {
+      if (!t.submissions) return;
+      // if (t.submissions[0].hidden) return; // filter all hidden teams
+      t.submissions.forEach((s) => {
+        ret.push({
+          teamname: t.name,
+          color: t.color,
+          name: s.name,
+          description: s.description,
+          hidden: s.hidden ?? false,
+          members: t.members,
+          link: s.link,
+          id: t.key
         })
-        .catch((error) => {
-            return { error: `something went wrong: ${error}` }
-        })
-
-    if (result.hasOwnProperty('error')) {
-        return {
-            notFound: true,
-            revalidate: 1
-        }
-    }
-
-    let teams = await Object.values(result)
-
-    teams = await teams.map(async (t: TeamRes) => {
-        const team = await t
-
-        team.projects = team.submissions
-        delete team.submissions
-        team.members = await team.members.map(async (m: string) => {
-            const res = await db
-                .collection('Users')
-                .doc(m)
-                .get()
-                .then(async (snapshot) => {
-                    if (!snapshot) return
-                    else return await snapshot.data()
-                })
-                .catch((e) => console.error(e))
-
-            return res.name
-        })
-
-        team.members = await Promise.all(team.members)
-
-        delete team.admins
-        return team
+      })
     })
 
-    const ret = await Promise.all(teams)
+  return {
+    props: { submissions: [...ret] },
+  }
 
-    return {
-        props: { teams: await ret },
-        revalidate: 1 * 5
-    }
+    // const db = initDB()
+    // const result = await db
+    //     .collection('Teams')
+    //     .where('submissions', '!=', null)
+    //     .get()
+    //     .then(async (snapshot) => {
+    //         const res = await snapshot.docs.map(
+    //             async (team) => await team.data()
+    //         )
+    //         return { ...res }
+    //     })
+    //     .catch((error) => {
+    //         return { error: `something went wrong: ${error}` }
+    //     })
+// 
+    // if (result.hasOwnProperty('error')) {
+    //     return {
+    //         notFound: true,
+    //         revalidate: 1
+    //     }
+    // }
+// 
+    // let teams = await Object.values(result)
+// 
+    // teams = await teams.map(async (t: TeamRes) => {
+    //     const team = await t
+// 
+    //     team.projects = team.submissions
+    //     delete team.submissions
+    //     team.members = await team.members.map(async (m: string) => {
+    //         const res = await db
+    //             .collection('Users')
+    //             .doc(m)
+    //             .get()
+    //             .then(async (snapshot) => {
+    //                 if (!snapshot) return
+    //                 else return await snapshot.data()
+    //             })
+    //             .catch((e) => console.error(e))
+// 
+    //         return res.name
+    //     })
+// 
+    //     team.members = await Promise.all(team.members)
+// 
+    //     delete team.admins
+    //     return team
+    // })
+// 
+    // const ret = await Promise.all(teams)
+// 
+    // return {
+    //     props: { teams: await ret },
+    //     revalidate: 1 * 5
+    // }
 }
 
 export default Projects

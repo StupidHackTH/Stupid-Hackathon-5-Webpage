@@ -1,7 +1,8 @@
 import { BlockLayout, Project } from '@components/Shared'
 import { ProjectViewComponent, Project as ProjectType } from '@types'
 
-const Submissions: ProjectViewComponent = ({ teams, variant }) => {
+const Submissions: ProjectViewComponent = ({ submissions, variant }) => {
+    /*
     if (teams.length === 0)
         return (
             <BlockLayout
@@ -27,18 +28,21 @@ const Submissions: ProjectViewComponent = ({ teams, variant }) => {
             })
         })
     })
+    */
 
-    const submissions = projects.map((t) => (
+    // teams is now submissions
+
+    const _submissions = submissions.map((s) => (
         <Project
-            id={t.id}
-            members={t.members}
-            key={t.name}
-            name={t.name}
-            color={t.color}
-            description={t.description}
-            teamname={t.teamname}
-            link={t.link}
-            hidden={false}
+            id={s.id}
+            members={s.members}
+            key={s.name}
+            name={s.name}
+            color={s.color}
+            description={s.description}
+            teamname={s.teamname}
+            link={s.link}
+            hidden={s.hidden}
         />
     ))
 
@@ -49,7 +53,7 @@ const Submissions: ProjectViewComponent = ({ teams, variant }) => {
                 variant={variant || 0}
                 id="submissions"
             >
-                {submissions}
+                {_submissions}
             </BlockLayout>
         </>
     )
