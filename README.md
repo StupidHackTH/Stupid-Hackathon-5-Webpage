@@ -14,7 +14,7 @@ Since the event's now over, we've hardcoded everything and removed all firebase 
 * [Sass](https://sass-lang.com/)
 * [Tailwind CSS](https://tailwindcss.com/) (didn't use it, it's just there for fun :0)
 * [Firebase](https://firebase.google.com/)
-* [Nes.css](https://nostalgic-css.github.io/NES.css/) (didn't include it in prod but we based off our buttons from it)
+* [Nes.css](https://nostalgic-css.github.io/NES.css/) (didn't include it in prod but we based our buttons out of it)
 * [Typescript :3](https://www.typescriptlang.org/)
 * [rscss](https://rscss.io/) (found it useful and wanted to share it)
 
