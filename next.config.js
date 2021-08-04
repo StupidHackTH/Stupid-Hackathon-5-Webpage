@@ -3,6 +3,7 @@ module.exports = {
         modern: true,
         polyfillsOptimization: true
     },
+    basePath: '/5',
     webpack(config) {
         config.resolve.alias = {
             ...config.resolve.alias,

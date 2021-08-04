@@ -3,6 +3,7 @@ import { BlockLayout } from "@components/Shared";
 import { SectionComponent } from '@types';
 
 const Agenda: SectionComponent = ({ variant }) => {
+	/*
 	return (
 		<BlockLayout header="Agenda" variant={variant} id="agenda">
 			<div className="agenda-container">
@@ -10,6 +11,8 @@ const Agenda: SectionComponent = ({ variant }) => {
 			</div>
 		</BlockLayout>
 	);
+	*/
+	return <h1>Agenda</h1>
 }
 
 export default Agenda;

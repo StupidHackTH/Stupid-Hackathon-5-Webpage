@@ -14,12 +14,12 @@ const Home: HomeComponent = ({ submissions }) => {
       <Main>
         <Header />
 
-        <Agenda variant={1} />
 
         <Submissions submissions={submissions} variant={3} />
         {
         /*
-
+          
+        <Agenda variant={1} />
         <WhatIs variant={1} />
         <Registration variant={2} />
 
