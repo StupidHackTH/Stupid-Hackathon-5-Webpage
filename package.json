@@ -1,11 +1,12 @@
 {
-  "name": "with-tailwindcss",
-  "version": "0.1.0",
+  "name": "sht5",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export"
   },
   "dependencies": {
     "firebase": "^8.8.1",
