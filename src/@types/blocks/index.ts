@@ -39,7 +39,7 @@ export type StatusBlock = {
 export type StatusComponent = FunctionComponent<StatusBlock>
 
 export type TeamProps = SectionProps & {
-	teams: Team[]
+	submissions: Project[]
 }
 
 export type HomeComponent = FunctionComponent<TeamProps>
@@ -52,7 +52,10 @@ type ProjectProps = Project & {
 
 export type ProjectComponent = FunctionComponent<ProjectProps>
 
-export type ProjectViewComponent = FunctionComponent<TeamProps>
+type ViewProps = TeamProps & {
+	variant?: number
+}
+export type ProjectViewComponent = FunctionComponent<ViewProps>
 
 type VoteProps = {
 	teams: RawVotingTeam[]

@@ -5,7 +5,8 @@ export type Project = {
 	description: string,
 	link?: string,
 	members: string[]
-	id?: string
+	id?: string,
+	hidden?: boolean
 }
 
 export type ProjectInfo = {
